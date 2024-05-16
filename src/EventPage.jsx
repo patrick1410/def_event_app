@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
+import { useState, useEffect } from "react";
+
 import { EventItem } from "./EventItem";
 import { EditEvent } from "./EditEvent";
 
