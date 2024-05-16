@@ -25,7 +25,6 @@ export const loader = async () => {
 export const EventsPage = () => {
   const [data, setData] = useState(useLoaderData());
 
-  const [isLoading, setIsLoading] = useState(true); // Initialize isLoading
   const [shouldFetchData, setShouldFetchData] = useState(false); // Initialize shouldFetchData
   const [newEventAdded, setNewEventAdded] = useState(false); // Initialize newEventAdded
 
@@ -38,7 +37,6 @@ export const EventsPage = () => {
       try {
         const newData = await loader();
         setData(newData);
-        setIsLoading(false); // Set isLoading to false after data is fetched
       } catch (error) {
         console.error(error);
       }
@@ -84,7 +82,6 @@ export const EventsPage = () => {
         filteredEvents={filteredEvents}
         searchField={searchField}
         sortBy={sortBy}
-        isLoading={isLoading}
       />
     </>
   );
