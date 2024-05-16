@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import { EventItem } from "./EventItem";
+import { EditEvent } from "./EditEvent";
 
 export const loader = async ({ params }) => {
   try {
@@ -38,6 +39,7 @@ export const EventPage = () => {
   return (
     <>
       <EventItem data={data} />
+      <EditEvent data={data} />
     </>
   );
 };
