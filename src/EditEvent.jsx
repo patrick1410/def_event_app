@@ -21,7 +21,7 @@ export const EditEvent = ({ data }) => {
 
   const editEvent = async (event) => {
     try {
-      const response = await fetch("http://localhost:3000/events", {
+      const response = await fetch(`http://localhost:3000/events/${event.id}`, {
         method: "PUT",
         body: JSON.stringify({
           id: event.id,
@@ -37,7 +37,7 @@ export const EditEvent = ({ data }) => {
         headers: { "Content-Type": "application/json;charset=utf-8" },
       });
       const updatedData = await response.json();
-      setOriginalData([updatedData, ...originalData]); // Voeg het gecreëerde evenement toe aan de staat
+      setOriginalData([updatedData]); // Voeg het gecreëerde evenement toe aan de staat
       onClose(); // Close modal
     } catch (error) {
       console.log(error);
@@ -149,7 +149,7 @@ export const EditEvent = ({ data }) => {
             </Button>
             <Button
               variant="ghost"
-              onClick={handleSubmit(editEvent(data.events[0]))}
+              onClick={() => handleSubmit(editEvent(data.events[0]))}
             >
               Add Event
             </Button>
