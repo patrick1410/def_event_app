@@ -25,21 +25,20 @@ export const loader = async () => {
 export const EventsPage = () => {
   const [data, setData] = useState(useLoaderData());
 
+  const [isLoading, setIsLoading] = useState(true); // Initialize isLoading
   const [shouldFetchData, setShouldFetchData] = useState(false); // Initialize shouldFetchData
   const [newEventAdded, setNewEventAdded] = useState(false); // Initialize newEventAdded
 
   const [filteredEvents, setFilteredEvents] = useState([]); // Initialize filteredEvents
   const [searchField, setSearchField] = useState(""); // Initialize searchField
-
   const [sortBy, setSortBy] = useState("");
-
-  //   console.log(data);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const newData = await loader();
         setData(newData);
+        setIsLoading(false); // Set isLoading to false after data is fetched
       } catch (error) {
         console.error(error);
       }
@@ -85,6 +84,7 @@ export const EventsPage = () => {
         filteredEvents={filteredEvents}
         searchField={searchField}
         sortBy={sortBy}
+        isLoading={isLoading}
       />
     </>
   );
