@@ -23,6 +23,7 @@ export const AddEvent = ({ setNewEventAdded }) => {
       const response = await fetch("http://localhost:3000/events", {
         method: "POST",
         body: JSON.stringify({
+          id: event.id,
           createdBy: event.createdBy,
           title: event.title,
           description: event.description,

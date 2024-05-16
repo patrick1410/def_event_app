@@ -11,7 +11,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 
-import { useState } from "react";
+import { editEvent } from "./utils/requestHandlers";
 import { useForm } from "react-hook-form";
 
 export const EditEvent = ({ data }) => {
@@ -19,52 +19,9 @@ export const EditEvent = ({ data }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { register, handleSubmit } = useForm();
 
-  const { event, id } = data.events[0];
+  const { id } = data.events[0];
 
   const toast = useToast();
-
-  const editEvent = async (eventId, event, onClose, toast) => {
-    try {
-      console.log("Editing event with ID:", eventId);
-
-      const response = await fetch(`http://localhost:3000/events/${eventId}`, {
-        method: "PUT",
-        body: JSON.stringify({
-          id: event.id,
-          createdBy: event.createdBy,
-          title: event.title,
-          description: event.description,
-          image: event.image,
-          categoryIds: event.categoryIds.map((id) => parseInt(id)),
-          location: event.location,
-          startTime: event.startTime,
-          endTime: event.endTime,
-        }),
-        headers: { "Content-Type": "application/json;charset=utf-8" },
-      });
-
-      if (response.ok) {
-        console.log("Event succesfully edited");
-        onClose();
-        toast({
-          title: "Event edited",
-          description: "You've successfully edited an event!",
-          status: "success",
-          duration: 5000,
-          isClosable: true,
-        });
-      }
-    } catch (error) {
-      console.log(`Error: ${error}`);
-      toast({
-        title: "Error",
-        description: "Something went wrong editing the event...",
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-      });
-    }
-  };
 
   return (
     <div>
@@ -171,7 +128,9 @@ export const EditEvent = ({ data }) => {
             </Button>
             <Button
               variant="ghost"
-              onClick={() => handleSubmit(editEvent(id, event, onClose, toast))}
+              onClick={() =>
+                handleSubmit((event) => editEvent(id, event, onClose, toast))()
+              }
             >
               Save
             </Button>

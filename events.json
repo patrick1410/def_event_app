@@ -66,19 +66,17 @@
       "endTime": "2023-03-09T07:00:00.000Z"
     },
     {
-      "id": "195c",
-      "createdBy": "TEST",
-      "title": "TEST",
-      "description": "TEST",
-      "image": "TEST",
+      "createdBy": "a",
+      "title": "a",
+      "description": "a",
+      "image": "a",
       "categoryIds": [
-        1,
-        2,
-        3
+        1
       ],
-      "location": "TEST",
-      "startTime": "2024-05-16T15:21",
-      "endTime": "2024-05-17T15:21"
+      "location": "a",
+      "startTime": "2024-05-30T16:02",
+      "endTime": "2024-06-02T16:02",
+      "id": "195c"
     }
   ],
   "categories": [
