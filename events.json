@@ -1,74 +1,231 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Ignacio Doe",
       "image": "https://global-uploads.webflow.com/5eecfecbe625d195e35b89f2/624bfb093da7d92733c001c0_Ignacio%20Villafruela%20Rodr%C3%ADguez.jpg"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Jane Bennett",
       "image": "https://global-uploads.webflow.com/5eecfecbe625d195e35b89f2/624bfb401d7131c760ca1c63_Elieska%20Lensink.jpg"
     }
   ],
   "events": [
     {
-      "id": 1,
+      "id": "1",
       "createdBy": 1,
       "title": "Trampoline party",
       "description": "Bounce around with your friends",
       "image": "https://i.pinimg.com/736x/3d/2f/af/3d2faf4e3188d34a9fcdc00df59e77b0.jpg",
-      "categoryIds": [2],
+      "categoryIds": [
+        2
+      ],
       "location": "My back yard",
       "startTime": "2023-03-10T18:00",
       "endTime": "2023-03-10T17:00:00.000Z"
     },
     {
-      "id": 2,
+      "id": "2",
       "createdBy": 1,
       "title": "Laser Tag mania",
       "description": "Let's play laser tag!",
       "image": "https://www.ctvnews.ca/polopoly_fs/1.5118552.1600965663!/httpImage/image.jpg_gen/derivatives/landscape_1020/image.jpg",
-      "categoryIds": [2],
+      "categoryIds": [
+        2
+      ],
       "location": "Blinded by the Lights Laser Tag, 15 Main St.",
       "startTime": "2023-04-06T18:46",
       "endTime": "2023-04-06T17:46"
     },
     {
-      "id": 3,
+      "id": "3",
       "createdBy": 2,
       "title": "Badminton game",
       "description": "Hit that shuttle!",
       "image": "https://wincacademy.github.io/webpages/media/pexels-vladvictoria-2202685.jpg",
-      "categoryIds": [1, 2],
+      "categoryIds": [
+        1,
+        2
+      ],
       "location": "The Park",
       "startTime": "2023-03-15T12:00:00.000Z",
       "endTime": "2023-03-15T13:30:00.000Z"
     },
     {
-      "id": 4,
+      "id": "4",
       "createdBy": 2,
       "title": "Yoga",
       "description": "It's a bit of a stretch.",
       "image": "https://wincacademy.github.io/webpages/media/pexels-gabby-k-5384538.jpg",
-      "categoryIds": [3],
+      "categoryIds": [
+        3
+      ],
       "location": "Shavasana Yoga School",
       "startTime": "2023-03-09T06:00:00.000Z",
       "endTime": "2023-03-09T07:00:00.000Z"
+    },
+    {
+      "id": "03d1",
+      "createdBy": "ROOST",
+      "title": "ROOST",
+      "description": "ROOST",
+      "image": "ROOST",
+      "categoryIds": [
+        "1",
+        "3"
+      ],
+      "location": "ROOST",
+      "startTime": "2024-05-22T13:02",
+      "endTime": "2024-06-02T13:02"
+    },
+    {
+      "id": "436c",
+      "createdBy": "TEST",
+      "title": "TEST",
+      "description": "TEST",
+      "image": "TEST",
+      "categoryIds": [
+        "1",
+        "2"
+      ],
+      "location": "TEST",
+      "startTime": "2024-05-15T13:05",
+      "endTime": "2024-05-17T13:05"
+    },
+    {
+      "id": "ed2e",
+      "createdBy": "ROOS",
+      "title": "ROOS",
+      "description": "ROOS",
+      "image": "ROOS",
+      "categoryIds": [
+        "3"
+      ],
+      "location": "ROOS",
+      "startTime": "2024-05-16T13:08",
+      "endTime": "2024-06-09T13:08"
+    },
+    {
+      "id": "ff5b",
+      "createdBy": "ROOS",
+      "title": "ROOS",
+      "description": "ROOS",
+      "image": "ROOS",
+      "categoryIds": [
+        "3"
+      ],
+      "location": "ROOS",
+      "startTime": "2024-05-16T13:08",
+      "endTime": "2024-06-09T13:08"
+    },
+    {
+      "id": "00e7",
+      "createdBy": "ROOS",
+      "title": "ROOS",
+      "description": "ROOS",
+      "image": "ROOS",
+      "categoryIds": [
+        "3"
+      ],
+      "location": "ROOS",
+      "startTime": "2024-05-16T13:08",
+      "endTime": "2024-06-09T13:08"
+    },
+    {
+      "id": "5b6e",
+      "createdBy": "ROOST",
+      "title": "as",
+      "description": "as",
+      "image": "as",
+      "categoryIds": [
+        "2"
+      ],
+      "location": "as",
+      "startTime": "2024-05-17T13:09",
+      "endTime": "2024-05-17T13:09"
+    },
+    {
+      "id": "1e55",
+      "createdBy": "ROOST",
+      "title": "as",
+      "description": "as",
+      "image": "as",
+      "categoryIds": [
+        "2"
+      ],
+      "location": "as",
+      "startTime": "2024-05-17T13:09",
+      "endTime": "2024-05-17T13:09"
+    },
+    {
+      "id": "5ca9",
+      "createdBy": "ROOST",
+      "title": "ROOST",
+      "description": "ROOST",
+      "image": "ROOST",
+      "categoryIds": [
+        "1"
+      ],
+      "location": "ROOST",
+      "startTime": "2024-05-16T13:11",
+      "endTime": "2024-05-16T13:11"
+    },
+    {
+      "id": "c743",
+      "createdBy": "TEST",
+      "title": "TEST",
+      "description": "TEST",
+      "image": "TEST",
+      "categoryIds": [
+        "3"
+      ],
+      "location": "TEST",
+      "startTime": "2024-05-29T13:11",
+      "endTime": "2024-05-30T13:11"
+    },
+    {
+      "id": "734b",
+      "createdBy": "test",
+      "title": "test",
+      "description": "test",
+      "image": "test",
+      "categoryIds": [
+        "1",
+        "2"
+      ],
+      "location": "test",
+      "startTime": "2024-06-05T13:12",
+      "endTime": "2024-06-09T13:12"
+    },
+    {
+      "id": "8c8e",
+      "createdBy": "test2000",
+      "title": "test2000",
+      "description": "test2000",
+      "image": "test2000",
+      "categoryIds": [
+        "1",
+        "2",
+        "3"
+      ],
+      "location": "test2000",
+      "startTime": "2024-05-22T13:14",
+      "endTime": "2024-06-09T13:14"
     }
   ],
   "categories": [
     {
       "name": "sports",
-      "id": 1
+      "id": "1"
     },
     {
       "name": "games",
-      "id": 2
+      "id": "2"
     },
     {
       "name": "relaxation",
-      "id": 3
+      "id": "3"
     }
   ]
 }
