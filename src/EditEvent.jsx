@@ -35,7 +35,7 @@ export const EditEvent = ({ data }) => {
           title: event.title,
           description: event.description,
           image: event.image,
-          categoryIds: event.categoryIds,
+          categoryIds: event.categoryIds.map((id) => parseInt(id)),
           location: event.location,
           startTime: event.startTime,
           endTime: event.endTime,
@@ -68,7 +68,7 @@ export const EditEvent = ({ data }) => {
 
   return (
     <div>
-      <Button onClick={onOpen}>Add Event</Button>
+      <Button onClick={onOpen}>Edit Event</Button>
       <Modal
         isCentered
         onClose={onClose}
@@ -77,7 +77,7 @@ export const EditEvent = ({ data }) => {
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Add Event</ModalHeader>
+          <ModalHeader>Edit Event</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <form>
@@ -173,7 +173,7 @@ export const EditEvent = ({ data }) => {
               variant="ghost"
               onClick={() => handleSubmit(editEvent(id, event, onClose, toast))}
             >
-              Add Event
+              Save
             </Button>
           </ModalFooter>
         </ModalContent>
