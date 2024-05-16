@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { createCategoryMap } from "./utils/mapCreators";
 import { matchSorter } from "match-sorter";
-// import { Spinner } from "@chakra-ui/react";
 
 export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {
   const { events, categories } = data;
@@ -18,18 +17,6 @@ export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {
 
   if (sortBy) items = sortedEvents;
   if (searchField) items = filteredEvents;
-
-  // if (isLoading) {
-  //   return (
-  //     <Spinner
-  //       thickness="4px"
-  //       speed="0.65s"
-  //       emptyColor="gray.200"
-  //       color="blue.500"
-  //       size="xl"
-  //     />
-  //   );
-  // }
 
   if (items.length === 0) return <p>No events found..</p>;
 
