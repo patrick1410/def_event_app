@@ -15,12 +15,10 @@ import { editEvent } from "./utils/requestHandlers";
 import { useForm } from "react-hook-form";
 
 export const EditEvent = ({ data }) => {
-  console.log();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { register, handleSubmit } = useForm();
 
   const { id } = data.events[0];
-
   const toast = useToast();
 
   return (

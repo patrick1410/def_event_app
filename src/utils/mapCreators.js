@@ -1,4 +1,4 @@
-// createCategoryMap function
+// createCategoryMap functie
 export const createCategoryMap = (categories) => {
   const categoryMap = {};
   categories.forEach((category) => {
@@ -7,7 +7,7 @@ export const createCategoryMap = (categories) => {
   return categoryMap;
 };
 
-// createUserMap function
+// createUserMap functie
 export const createUserMap = (users) => {
   const userMap = {};
   users.forEach((user) => {

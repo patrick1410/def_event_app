@@ -1,4 +1,4 @@
-// deleteEvent function
+// deleteEvent functie
 export const deleteEvent = async (eventId) => {
   try {
     if (confirm("Are you sure you want to delete the event?")) {
@@ -20,6 +20,7 @@ export const deleteEvent = async (eventId) => {
   }
 };
 
+// editEvent functie
 export const editEvent = async (eventId, event, onClose, toast) => {
   try {
     console.log("Editing event with ID:", eventId);
@@ -27,7 +28,7 @@ export const editEvent = async (eventId, event, onClose, toast) => {
     const response = await fetch(`http://localhost:3000/events/${eventId}`, {
       method: "PUT",
       body: JSON.stringify({
-        id: event.id,
+        id: eventId,
         createdBy: event.createdBy,
         title: event.title,
         description: event.description,

@@ -66,17 +66,18 @@
       "endTime": "2023-03-09T07:00:00.000Z"
     },
     {
-      "createdBy": "a",
-      "title": "a",
-      "description": "a",
-      "image": "a",
+      "id": "83f4",
+      "createdBy": "ROOST",
+      "title": "ROOST",
+      "description": "ROOST",
+      "image": "ROOST",
       "categoryIds": [
-        1
+        2,
+        3
       ],
-      "location": "a",
-      "startTime": "2024-05-30T16:02",
-      "endTime": "2024-06-02T16:02",
-      "id": "195c"
+      "location": "ROOST",
+      "startTime": "2024-05-23T16:04",
+      "endTime": "2024-06-01T16:04"
     }
   ],
   "categories": [
