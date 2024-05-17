@@ -11,7 +11,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 
-import { editEvent } from "./utils/requestHandlers";
+import { editEvent } from "../../utils/requestHandlers";
 import { useForm } from "react-hook-form";
 
 export const EditEvent = ({ data }) => {

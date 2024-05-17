@@ -3,10 +3,10 @@ import { useState, useEffect } from "react";
 
 import { matchSorter } from "match-sorter";
 
-import { AddEvent } from "./AddEvent";
-import { SearchBar } from "./SearchBar";
-import { SelectSort } from "./SelectSort";
-import { EventsList } from "./EventsList";
+import { AddEvent } from "../components/UI/AddEvent";
+import { SearchBar } from "../components/UI/SearchBar";
+import { SelectSort } from "../components/UI/SelectSort";
+import { EventsList } from "../components/EventsList";
 
 export const loader = async () => {
   try {

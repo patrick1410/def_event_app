@@ -1,8 +1,8 @@
 import { useLoaderData } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import { EventItem } from "./EventItem";
-import { EditEvent } from "./EditEvent";
+import { EventItem } from "../components/EventItem";
+import { EditEvent } from "../components/UI/EditEvent";
 
 export const loader = async ({ params }) => {
   try {

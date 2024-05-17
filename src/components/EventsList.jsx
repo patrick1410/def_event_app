@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { createCategoryMap } from "./utils/mapCreators";
+import { createCategoryMap } from "../utils/mapCreators";
 import { matchSorter } from "match-sorter";
 
 export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {

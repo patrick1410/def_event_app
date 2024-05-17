@@ -1,5 +1,5 @@
-import { createCategoryMap, createUserMap } from "./utils/mapCreators";
-import { deleteEvent } from "./utils/requestHandlers";
+import { createCategoryMap, createUserMap } from "../utils/mapCreators";
+import { deleteEvent } from "../utils/requestHandlers";
 import { Button } from "@chakra-ui/react";
 
 export const EventItem = ({ data }) => {
