@@ -1,6 +1,14 @@
 import { createCategoryMap, createUserMap } from "../utils/mapCreators";
 import { deleteEvent } from "../utils/requestHandlers";
-import { Button } from "@chakra-ui/react";
+import {
+  Button,
+  Card,
+  CardHeader,
+  CardBody,
+  Heading,
+  Text,
+  Image,
+} from "@chakra-ui/react";
 
 export const EventItem = ({ data }) => {
   const {
@@ -22,24 +30,28 @@ export const EventItem = ({ data }) => {
 
   return (
     <>
-      <div className="event-detail">
-        <h1>{title}</h1>
-        <p>
-          By: {typeof createdBy === "number" ? userMap[createdBy] : createdBy}
-        </p>
-        <img src={image} alt={title} />
-        <p>{description}</p>
-        <p>{location}</p>
-        <p>
-          Start: {startTime} End: {endTime}
-        </p>
-        <p>
-          Categories:{" "}
-          {categoryIds
-            ? categoryIds.map((id) => categoryMap[id]).join(", ")
-            : categories}
-        </p>
-      </div>
+      <Card className="event-detail">
+        <CardHeader>
+          <Heading>{title}</Heading>
+        </CardHeader>
+        <CardBody>
+          <Text>
+            By: {typeof createdBy === "number" ? userMap[createdBy] : createdBy}
+          </Text>
+          <Image src={image} alt={title} />
+          <Text>{description}</Text>
+          <Text>{location}</Text>
+          <Text>
+            Start: {startTime} End: {endTime}
+          </Text>
+          <Text>
+            Categories:{" "}
+            {categoryIds
+              ? categoryIds.map((id) => categoryMap[id]).join(", ")
+              : categories}
+          </Text>
+        </CardBody>
+      </Card>
       <Button onClick={() => deleteEvent(id)}>Delete</Button>
     </>
   );

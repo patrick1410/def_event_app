@@ -67,12 +67,12 @@ button:focus-visible {
   }
 }
 
-form {
+.form {
   display: flex;
   flex-direction: column;
 }
 
-form > label {
+.form > .label {
   display: flex;
   padding: 10px 0 10px;
 }

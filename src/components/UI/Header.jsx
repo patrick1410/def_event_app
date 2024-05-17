@@ -1,3 +1,9 @@
+import { Heading } from "@chakra-ui/react";
+
 export const Header = ({ title }) => {
-  return <h1>{title}</h1>;
+  return (
+    <Heading as="h1" size="3xl">
+      {title}
+    </Heading>
+  );
 };

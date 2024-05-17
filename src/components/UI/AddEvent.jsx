@@ -8,6 +8,12 @@ import {
   ModalCloseButton,
   ModalBody,
   ModalFooter,
+  FormControl,
+  FormLabel,
+  Input,
+  Box,
+  HStack,
+  Textarea,
 } from "@chakra-ui/react";
 
 import { useState } from "react";
@@ -44,7 +50,7 @@ export const AddEvent = ({ setNewEventAdded }) => {
   };
 
   return (
-    <div>
+    <Box>
       <Button onClick={onOpen}>Add Event</Button>
       <Modal
         isCentered
@@ -57,39 +63,47 @@ export const AddEvent = ({ setNewEventAdded }) => {
           <ModalHeader>Add Event</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <form>
-              <label htmlFor="created-by">Created By:</label>
-              <input
+            <FormControl className="form">
+              <FormLabel className="label" htmlFor="created-by">
+                Created By:
+              </FormLabel>
+              <Input
                 type="text"
                 id="created-by"
                 placeholder="Enter your name..."
                 {...register("createdBy", { required: true })}
               />
-              <label htmlFor="title">Event:</label>
-              <input
+              <FormLabel className="label" htmlFor="title">
+                Event:
+              </FormLabel>
+              <Input
                 type="text"
                 id="title"
                 placeholder="Enter a title..."
                 {...register("title", { required: true })}
               />
-              <label htmlFor="description">Description:</label>
-              <textarea
-                name=""
+              <FormLabel className="label" htmlFor="description">
+                Description:
+              </FormLabel>
+              <Textarea
                 id="description"
                 cols="30"
                 rows="5"
                 placeholder="Enter a description..."
                 {...register("description", { required: true })}
-              ></textarea>
-              <label htmlFor="image">Image:</label>
-              <input
+              ></Textarea>
+              <FormLabel className="label" htmlFor="image">
+                Image:
+              </FormLabel>
+              <Input
                 type="url"
                 id="image"
+                placeholder="Enter an image URL..."
                 {...register("image", { required: true })}
               />
-              <label htmlFor="category">Category:</label>
-              <div>
-                <div>
+              <FormLabel className="label">Categories:</FormLabel>
+              <HStack spacing={24}>
+                <Box>
                   <input
                     type="checkbox"
                     id="category-sports"
@@ -97,9 +111,9 @@ export const AddEvent = ({ setNewEventAdded }) => {
                     value={1}
                     {...register("categoryIds", { required: true })}
                   />
-                  <label htmlFor="category">Sports</label>
-                </div>
-                <div>
+                  <label htmlFor="category-sports">Sports</label>
+                </Box>
+                <Box>
                   <input
                     type="checkbox"
                     id="category-games"
@@ -107,9 +121,9 @@ export const AddEvent = ({ setNewEventAdded }) => {
                     value={2}
                     {...register("categoryIds", { required: true })}
                   />
-                  <label htmlFor="category">Games</label>
-                </div>
-                <div>
+                  <label htmlFor="category-games">Games</label>
+                </Box>
+                <Box>
                   <input
                     type="checkbox"
                     id="category-relaxation"
@@ -117,30 +131,35 @@ export const AddEvent = ({ setNewEventAdded }) => {
                     value={3}
                     {...register("categoryIds", { required: true })}
                   />
-                  <label htmlFor="category">Relaxation</label>
-                </div>
-              </div>
-              <label htmlFor="location">Location:</label>
-              <input
+                  <label htmlFor="category-relaxation">Relaxation</label>
+                </Box>
+              </HStack>
+              <FormLabel className="label" htmlFor="location">
+                Location:
+              </FormLabel>
+              <Input
                 type="text"
                 id="location"
+                placeholder="Enter a location..."
                 {...register("location", { required: true })}
               />
-              <label htmlFor="start-time">Start-time:</label>
-              <input
+              <FormLabel className="label" htmlFor="start-time">
+                Start-time:
+              </FormLabel>
+              <Input
                 type="datetime-local"
-                name=""
                 id="start-time"
                 {...register("startTime", { required: true })}
               />
-              <label htmlFor="end-time">End-time:</label>
-              <input
+              <FormLabel className="label" htmlFor="end-time">
+                End-time:
+              </FormLabel>
+              <Input
                 type="datetime-local"
-                name=""
                 id="end-time"
                 {...register("endTime", { required: true })}
               />
-            </form>
+            </FormControl>
           </ModalBody>
           <ModalFooter>
             <Button colorScheme="blue" mr={3} onClick={onClose}>
@@ -152,6 +171,6 @@ export const AddEvent = ({ setNewEventAdded }) => {
           </ModalFooter>
         </ModalContent>
       </Modal>
-    </div>
+    </Box>
   );
 };

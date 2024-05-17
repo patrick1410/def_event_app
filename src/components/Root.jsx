@@ -1,13 +1,14 @@
 import { Header } from "./UI/Header";
 import { Navigation } from "./Navigation";
 import { Outlet } from "react-router-dom";
+import { Box } from "@chakra-ui/react";
 
 export const Root = () => {
   return (
-    <div className="root">
+    <Box className="root">
       <Header title={"Event App"} />
       <Navigation />
       <Outlet />
-    </div>
+    </Box>
   );
 };

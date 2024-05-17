@@ -1,3 +1,13 @@
+import {
+  Box,
+  Heading,
+  Text,
+  Image,
+  Card,
+  CardHeader,
+  CardBody,
+} from "@chakra-ui/react";
+
 import { Link } from "react-router-dom";
 import { createCategoryMap } from "../utils/mapCreators";
 import { matchSorter } from "match-sorter";
@@ -21,7 +31,7 @@ export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {
   if (items.length === 0) return <p>No events found..</p>;
 
   return (
-    <div className="event-list">
+    <Box className="event-list">
       {items.map(
         ({
           id,
@@ -32,26 +42,30 @@ export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {
           endTime,
           categoryIds,
         }) => (
-          <div key={id} className="event">
-            <Link to={`/event/${id}`}>
-              <h2>{title}</h2>
-            </Link>
-            <p>{description}</p>
-            <Link to={`/event/${id}`}>
-              <img src={image} alt={title} />
-            </Link>
-            <p>
-              Start: {startTime} End: {endTime}
-            </p>
-            <p>
-              Categories:{" "}
-              {categoryIds
-                ? categoryIds.map((id) => categoryMap[id]).join(", ")
-                : categories}
-            </p>
-          </div>
+          <Card key={id} className="event">
+            <CardHeader>
+              <Link to={`/event/${id}`}>
+                <Heading>{title}</Heading>
+              </Link>
+            </CardHeader>
+            <CardBody>
+              <Text>{description}</Text>
+              <Link to={`/event/${id}`}>
+                <Image src={image} alt={title} />
+              </Link>
+              <Text>
+                Start: {startTime} End: {endTime}
+              </Text>
+              <Text>
+                Categories:{" "}
+                {categoryIds
+                  ? categoryIds.map((id) => categoryMap[id]).join(", ")
+                  : categories}
+              </Text>
+            </CardBody>
+          </Card>
         )
       )}
-    </div>
+    </Box>
   );
 };
