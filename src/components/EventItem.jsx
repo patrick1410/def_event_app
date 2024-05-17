@@ -8,6 +8,7 @@ import {
   Heading,
   Text,
   Image,
+  Box,
 } from "@chakra-ui/react";
 
 export const EventItem = ({ data }) => {
@@ -29,7 +30,7 @@ export const EventItem = ({ data }) => {
   const userMap = createUserMap(users);
 
   return (
-    <>
+    <Box>
       <Card className="event-detail">
         <CardHeader>
           <Heading>{title}</Heading>
@@ -53,6 +54,6 @@ export const EventItem = ({ data }) => {
         </CardBody>
       </Card>
       <Button onClick={() => deleteEvent(id)}>Delete</Button>
-    </>
+    </Box>
   );
 };

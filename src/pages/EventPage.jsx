@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 import { EventItem } from "../components/EventItem";
 import { EditEvent } from "../components/UI/EditEvent";
+import { Box } from "@chakra-ui/react";
 
 export const loader = async ({ params }) => {
   try {
@@ -38,9 +39,9 @@ export const EventPage = () => {
   }, []);
 
   return (
-    <>
+    <Box>
       <EventItem data={data} />
       <EditEvent data={data} />
-    </>
+    </Box>
   );
 };

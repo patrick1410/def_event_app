@@ -7,6 +7,7 @@ import { AddEvent } from "../components/UI/AddEvent";
 import { SearchBar } from "../components/UI/SearchBar";
 import { SelectSort } from "../components/UI/SelectSort";
 import { EventsList } from "../components/EventsList";
+import { Box } from "@chakra-ui/react";
 
 export const loader = async () => {
   try {
@@ -68,7 +69,7 @@ export const EventsPage = () => {
   }; // Sorteer functie voor SelectSort component
 
   return (
-    <>
+    <Box>
       <AddEvent setNewEventAdded={setNewEventAdded} />
       <SearchBar
         placeholder={"Search event by name..."}
@@ -82,6 +83,6 @@ export const EventsPage = () => {
         searchField={searchField}
         sortBy={sortBy}
       />
-    </>
+    </Box>
   );
 };
