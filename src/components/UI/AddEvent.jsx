@@ -52,9 +52,7 @@ export const AddEvent = ({ setNewEventAdded }) => {
 
   return (
     <Center>
-      <Button mt={5} onClick={onOpen}>
-        Add Event
-      </Button>
+      <Button onClick={onOpen}>Add Event</Button>
       <Modal
         isCentered
         onClose={onClose}

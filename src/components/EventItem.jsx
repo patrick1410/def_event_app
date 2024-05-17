@@ -30,22 +30,35 @@ export const EventItem = ({ data }) => {
 
   return (
     <Center>
-      <Card className="event-detail">
+      <Card maxWidth="600px" className="event-detail">
         <CardHeader>
           <Heading textAlign="center">{title}</Heading>
         </CardHeader>
-        <CardBody>
+        <CardBody
+          display="flex"
+          flexDir="column"
+          alignItems="center"
+          justifyContent="center"
+        >
           <Text>
-            By: {typeof createdBy === "number" ? userMap[createdBy] : createdBy}
+            <em>By:</em>{" "}
+            {typeof createdBy === "number" ? userMap[createdBy] : createdBy}
           </Text>
           <Image src={image} alt={title} />
-          <Text>{description}</Text>
-          <Text>{location}</Text>
           <Text>
-            Start: {startTime} End: {endTime}
+            <em>Description:</em> {description}
           </Text>
           <Text>
-            Categories:{" "}
+            <em>Location:</em> {location}
+          </Text>
+          <Text>
+            <em>Start:</em> {startTime}
+          </Text>
+          <Text>
+            <em>End:</em> {endTime}
+          </Text>
+          <Text>
+            <em>Categories:</em>{" "}
             {categoryIds
               ? categoryIds.map((id) => categoryMap[id]).join(", ")
               : categories}

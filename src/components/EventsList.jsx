@@ -37,7 +37,7 @@ export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {
       <Center>
         <SimpleGrid
           w="90%"
-          columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
+          columns={{ base: 1, md: 2, lg: 3, xl: 4 }}
           spacing={8}
           mt={10}
           mb={10}
@@ -62,16 +62,30 @@ export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {
                     <Heading textAlign="center">{title}</Heading>
                   </Link>
                 </CardHeader>
-                <CardBody>
+                <CardBody
+                  display="flex"
+                  flexDir="column"
+                  alignItems="center"
+                  justifyContent="center"
+                >
                   <Link to={`/event/${id}`}>
                     <Image src={image} alt={title} />
-                  </Link>{" "}
-                  <Text>{description}</Text>
+                  </Link>
+
                   <Text>
-                    Start: {startTime} End: {endTime}
+                    <em>Description: </em>
+                    {description}
                   </Text>
                   <Text>
-                    Categories:{" "}
+                    <em> Start: </em>
+                    {startTime}
+                  </Text>
+                  <Text>
+                    <em>End: </em>
+                    {endTime}
+                  </Text>
+                  <Text>
+                    <em> Categories: </em>
                     {categoryIds
                       ? categoryIds.map((id) => categoryMap[id]).join(", ")
                       : categories}
