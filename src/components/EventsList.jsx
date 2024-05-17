@@ -30,7 +30,7 @@ export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {
   if (sortBy) items = sortedEvents;
   if (searchField) items = filteredEvents;
 
-  if (items.length === 0) return <p>No events found..</p>;
+  if (items.length === 0) return <Text>No events found..</Text>;
 
   return (
     <Box className="event-list">
