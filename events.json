@@ -66,20 +66,6 @@
       "endTime": "2023-03-09T07:00:00.000Z"
     },
     {
-      "id": "4205",
-      "createdBy": "TEST",
-      "title": "TEST",
-      "description": "TEST",
-      "image": "TEST",
-      "categoryIds": [
-        2,
-        3
-      ],
-      "location": "TEST",
-      "startTime": "2024-05-17T16:51",
-      "endTime": "2024-05-18T16:51"
-    },
-    {
       "id": "5cf0",
       "createdBy": "PS5",
       "title": "PS5",
@@ -92,32 +78,6 @@
       "location": "PS5",
       "startTime": "2024-05-17T17:04",
       "endTime": "2024-05-18T17:04"
-    },
-    {
-      "id": "b579",
-      "createdBy": "TESTUI",
-      "title": "TESTUI",
-      "description": "TESTUI",
-      "image": "TESTUI",
-      "categoryIds": [
-        3
-      ],
-      "location": "TESTUI",
-      "startTime": "2024-05-24T17:06",
-      "endTime": "2024-05-24T17:06"
-    },
-    {
-      "id": "de53",
-      "createdBy": "ROOST",
-      "title": "ROOST",
-      "description": "ROOST",
-      "image": "ROOST",
-      "categoryIds": [
-        1
-      ],
-      "location": "ROOST",
-      "startTime": "2024-05-14T18:21",
-      "endTime": "2024-05-25T18:21"
     }
   ],
   "categories": [

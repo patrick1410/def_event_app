@@ -14,6 +14,7 @@ import {
   Box,
   HStack,
   Textarea,
+  Center,
 } from "@chakra-ui/react";
 
 import { useState } from "react";
@@ -50,8 +51,10 @@ export const AddEvent = ({ setNewEventAdded }) => {
   };
 
   return (
-    <Box>
-      <Button onClick={onOpen}>Add Event</Button>
+    <Center>
+      <Button mt={5} onClick={onOpen}>
+        Add Event
+      </Button>
       <Modal
         isCentered
         onClose={onClose}
@@ -171,6 +174,6 @@ export const AddEvent = ({ setNewEventAdded }) => {
           </ModalFooter>
         </ModalContent>
       </Modal>
-    </Box>
+    </Center>
   );
 };

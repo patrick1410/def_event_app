@@ -29,7 +29,9 @@ export const EditEvent = ({ data }) => {
 
   return (
     <Box>
-      <Button onClick={onOpen}>Edit Event</Button>
+      <Button w="6rem" onClick={onOpen}>
+        Edit
+      </Button>
       <Modal
         isCentered
         onClose={onClose}

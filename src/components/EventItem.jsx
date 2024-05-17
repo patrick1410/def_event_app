@@ -1,5 +1,4 @@
 import { createCategoryMap, createUserMap } from "../utils/mapCreators";
-import { deleteEvent } from "../utils/requestHandlers";
 import {
   Button,
   Card,
@@ -8,7 +7,7 @@ import {
   Heading,
   Text,
   Image,
-  Box,
+  Center,
 } from "@chakra-ui/react";
 
 export const EventItem = ({ data }) => {
@@ -30,10 +29,10 @@ export const EventItem = ({ data }) => {
   const userMap = createUserMap(users);
 
   return (
-    <Box>
+    <Center>
       <Card className="event-detail">
         <CardHeader>
-          <Heading>{title}</Heading>
+          <Heading textAlign="center">{title}</Heading>
         </CardHeader>
         <CardBody>
           <Text>
@@ -53,7 +52,6 @@ export const EventItem = ({ data }) => {
           </Text>
         </CardBody>
       </Card>
-      <Button onClick={() => deleteEvent(id)}>Delete</Button>
-    </Box>
+    </Center>
   );
 };

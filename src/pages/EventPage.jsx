@@ -3,7 +3,9 @@ import { useState, useEffect } from "react";
 
 import { EventItem } from "../components/EventItem";
 import { EditEvent } from "../components/UI/EditEvent";
-import { Box } from "@chakra-ui/react";
+import { Box, Stack } from "@chakra-ui/react";
+import { DeleteEvent } from "../components/UI/DeleteEvent";
+import { deleteEvent } from "../utils/requestHandlers";
 
 export const loader = async ({ params }) => {
   try {
@@ -26,6 +28,8 @@ export const loader = async ({ params }) => {
 export const EventPage = () => {
   const [data, setData] = useState(useLoaderData());
 
+  const id = data.events[0].id;
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -41,7 +45,16 @@ export const EventPage = () => {
   return (
     <Box>
       <EventItem data={data} />
-      <EditEvent data={data} />
+      <Stack
+        display="flex"
+        justifyContent="center"
+        direction="row"
+        m={10}
+        spacing={10}
+      >
+        <DeleteEvent clickFn={deleteEvent} id={id} />
+        <EditEvent data={data} />
+      </Stack>
     </Box>
   );
 };

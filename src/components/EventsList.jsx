@@ -6,6 +6,8 @@ import {
   Card,
   CardHeader,
   CardBody,
+  Center,
+  SimpleGrid,
 } from "@chakra-ui/react";
 
 import { Link } from "react-router-dom";
@@ -32,40 +34,54 @@ export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {
 
   return (
     <Box className="event-list">
-      {items.map(
-        ({
-          id,
-          title,
-          description,
-          image,
-          startTime,
-          endTime,
-          categoryIds,
-        }) => (
-          <Card key={id} className="event">
-            <CardHeader>
-              <Link to={`/event/${id}`}>
-                <Heading>{title}</Heading>
-              </Link>
-            </CardHeader>
-            <CardBody>
-              <Text>{description}</Text>
-              <Link to={`/event/${id}`}>
-                <Image src={image} alt={title} />
-              </Link>
-              <Text>
-                Start: {startTime} End: {endTime}
-              </Text>
-              <Text>
-                Categories:{" "}
-                {categoryIds
-                  ? categoryIds.map((id) => categoryMap[id]).join(", ")
-                  : categories}
-              </Text>
-            </CardBody>
-          </Card>
-        )
-      )}
+      <Center>
+        <SimpleGrid
+          w="90%"
+          columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
+          spacing={8}
+          mt={10}
+          mb={10}
+        >
+          {items.map(
+            ({
+              id,
+              title,
+              description,
+              image,
+              startTime,
+              endTime,
+              categoryIds,
+            }) => (
+              <Card
+                key={id}
+                className="event"
+                _hover={{ transform: "scale(1.05)" }}
+              >
+                <CardHeader>
+                  <Link to={`/event/${id}`}>
+                    <Heading textAlign="center">{title}</Heading>
+                  </Link>
+                </CardHeader>
+                <CardBody>
+                  <Link to={`/event/${id}`}>
+                    <Image src={image} alt={title} />
+                  </Link>{" "}
+                  <Text>{description}</Text>
+                  <Text>
+                    Start: {startTime} End: {endTime}
+                  </Text>
+                  <Text>
+                    Categories:{" "}
+                    {categoryIds
+                      ? categoryIds.map((id) => categoryMap[id]).join(", ")
+                      : categories}
+                  </Text>
+                </CardBody>
+              </Card>
+            )
+          )}
+        </SimpleGrid>
+      </Center>
     </Box>
   );
 };

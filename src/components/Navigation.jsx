@@ -4,9 +4,14 @@ import { Box, UnorderedList, ListItem } from "@chakra-ui/react";
 export const Navigation = () => {
   return (
     <Box as="nav">
-      <UnorderedList style={{ listStyle: "none" }}>
-        <ListItem>
-          <Link to={"/"}>Home</Link>
+      <UnorderedList style={{ listStyle: "none", margin: 0 }}>
+        <ListItem _hover={{ color: "#0000EE" }}>
+          <Link
+            style={{ textTransform: "uppercase", fontWeight: "bold" }}
+            to={"/"}
+          >
+            Home
+          </Link>
         </ListItem>
       </UnorderedList>
     </Box>
