@@ -1,5 +1,4 @@
 import {
-  Box,
   Heading,
   Text,
   Image,
@@ -30,72 +29,70 @@ export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {
   if (sortBy) items = sortedEvents;
   if (searchField) items = filteredEvents;
 
-  if (items.length === 0) return <Text>No events found..</Text>;
+  if (items.length === 0) return <Center as="p">No events found...</Center>;
 
   return (
-    <Box className="event-list">
-      <Center>
-        <SimpleGrid
-          w="90%"
-          columns={{ base: 1, md: 2, lg: 3, xl: 4 }}
-          spacing={8}
-          mt={10}
-          mb={10}
-        >
-          {items.map(
-            ({
-              id,
-              title,
-              description,
-              image,
-              startTime,
-              endTime,
-              categoryIds,
-            }) => (
-              <Card
-                key={id}
-                className="event"
-                _hover={{ transform: "scale(1.05)" }}
+    <Center as="div" className="event-list">
+      <SimpleGrid
+        w="90%"
+        columns={{ base: 1, md: 2, lg: 3, xl: 4 }}
+        spacing={8}
+        mt={10}
+        mb={10}
+      >
+        {items.map(
+          ({
+            id,
+            title,
+            description,
+            image,
+            startTime,
+            endTime,
+            categoryIds,
+          }) => (
+            <Card
+              key={id}
+              className="event"
+              _hover={{ transform: "scale(1.05)" }}
+            >
+              <CardHeader>
+                <Link to={`/event/${id}`}>
+                  <Heading textAlign="center">{title}</Heading>
+                </Link>
+              </CardHeader>
+              <CardBody
+                display="flex"
+                flexDir="column"
+                alignItems="center"
+                justifyContent="center"
               >
-                <CardHeader>
-                  <Link to={`/event/${id}`}>
-                    <Heading textAlign="center">{title}</Heading>
-                  </Link>
-                </CardHeader>
-                <CardBody
-                  display="flex"
-                  flexDir="column"
-                  alignItems="center"
-                  justifyContent="center"
-                >
-                  <Link to={`/event/${id}`}>
-                    <Image src={image} alt={title} />
-                  </Link>
+                <Link to={`/event/${id}`}>
+                  <Image src={image} alt={title} />
+                </Link>
 
-                  <Text>
-                    <em>Description: </em>
-                    {description}
-                  </Text>
-                  <Text>
-                    <em> Start: </em>
-                    {startTime}
-                  </Text>
-                  <Text>
-                    <em>End: </em>
-                    {endTime}
-                  </Text>
-                  <Text>
-                    <em> Categories: </em>
-                    {categoryIds
-                      ? categoryIds.map((id) => categoryMap[id]).join(", ")
-                      : categories}
-                  </Text>
-                </CardBody>
-              </Card>
-            )
-          )}
-        </SimpleGrid>
-      </Center>
-    </Box>
+                <Text>
+                  <em>Description: </em>
+                  {description}
+                </Text>
+                <Text>
+                  <em> Start: </em>
+                  {startTime}
+                </Text>
+                <Text>
+                  <em>End: </em>
+                  {endTime}
+                </Text>
+                <Text>
+                  <em> Categories: </em>
+                  {categoryIds
+                    ? categoryIds.map((id) => categoryMap[id]).join(", ")
+                    : categories}
+                </Text>
+              </CardBody>
+            </Card>
+          )
+        )}
+      </SimpleGrid>
+    </Center>
   );
 };

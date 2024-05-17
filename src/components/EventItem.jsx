@@ -1,6 +1,5 @@
 import { createCategoryMap, createUserMap } from "../utils/mapCreators";
 import {
-  Button,
   Card,
   CardHeader,
   CardBody,
@@ -12,7 +11,6 @@ import {
 
 export const EventItem = ({ data }) => {
   const {
-    id,
     title,
     image,
     description,

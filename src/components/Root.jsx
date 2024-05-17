@@ -5,8 +5,8 @@ import { Box, Center, VStack } from "@chakra-ui/react";
 
 export const Root = () => {
   return (
-    <Box className="root">
-      <Center>
+    <Box>
+      <Center className="root">
         <VStack>
           <Header title={"Event App"} />
           <Navigation />
