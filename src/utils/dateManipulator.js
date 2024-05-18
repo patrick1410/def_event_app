@@ -6,12 +6,3 @@ export const convertDate = (dateStr) => {
 
   return `${day}-${month}-${year}, ${timePart}u`; // return manipulated dateString
 };
-
-export const sliceDate = (date) => {
-  if (date.length >= 16) {
-    const slicedDate = date.slice(0, 16);
-    console.log(slicedDate);
-  } else {
-    console.log(date);
-  }
-};

@@ -33,7 +33,7 @@ export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {
   if (items.length === 0)
     return (
       <Center as="p" mt={10} color="#F5F5F5">
-        No events found...
+        No event(s) found...
       </Center>
     );
 
