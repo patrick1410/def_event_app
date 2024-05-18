@@ -7,6 +7,7 @@ import {
   CardBody,
   Center,
   SimpleGrid,
+  Tag,
 } from "@chakra-ui/react";
 
 import { Link } from "react-router-dom";
@@ -76,24 +77,25 @@ export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {
                   <Image src={image} alt={title} />
                 </Link>
                 <Text>
-                  <em>Description: </em>
+                  <strong>Description: </strong>
                   {description}
                 </Text>
                 <Text>
-                  <em>Start: </em>
+                  <strong>Start: </strong>
                   {convertDate(startTime)}
                 </Text>
                 <Text>
-                  <em>End: </em>
+                  <strong>End: </strong>
                   {convertDate(endTime)}
                 </Text>
                 <Text>
-                  <em>Categories: </em>
-                  {categoryIds
-                    ? categoryIds
-                        .map((id) => capFirstIndex(categoryMap[id]))
-                        .join(", ")
-                    : categories}
+                  <strong>Categories: </strong>
+                  {categoryIds &&
+                    categoryIds.map((id) => (
+                      <Tag backgroundColor="#bb86fc" color="#fff" key={id}>
+                        {capFirstIndex(categoryMap[id])}
+                      </Tag>
+                    ))}
                 </Text>
               </CardBody>
             </Card>

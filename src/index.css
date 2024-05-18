@@ -5,12 +5,9 @@
 }
 
 h1,
-h2 {
-  color: #f5f5f5;
-}
-
+h2,
 p {
-  color: #b0b0b0;
+  color: #f5f5f5;
 }
 
 .chakra-ui-light {

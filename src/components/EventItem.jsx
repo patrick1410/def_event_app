@@ -8,6 +8,7 @@ import {
   Text,
   Image,
   Center,
+  Tag,
 } from "@chakra-ui/react";
 
 export const EventItem = ({ data }) => {
@@ -40,29 +41,34 @@ export const EventItem = ({ data }) => {
           justifyContent="center"
         >
           <Text>
-            <em>By:</em>{" "}
+            <strong>By: </strong>
             {typeof createdBy === "number" ? userMap[createdBy] : createdBy}
           </Text>
           <Image src={image} alt={title} />
           <Text>
-            <em>Description:</em> {description}
+            <strong>Description: </strong>
+            {description}
           </Text>
           <Text>
-            <em>Location:</em> {location}
+            <strong>Location: </strong>
+            {location}
           </Text>
           <Text>
-            <em>Start:</em> {convertDate(startTime)}
+            <strong>Start: </strong>
+            {convertDate(startTime)}
           </Text>
           <Text>
-            <em>End:</em> {convertDate(endTime)}
+            <strong>End: </strong>
+            {convertDate(endTime)}
           </Text>
           <Text>
-            <em>Categories:</em>{" "}
-            {categoryIds
-              ? categoryIds
-                  .map((id) => capFirstIndex(categoryMap[id]))
-                  .join(", ")
-              : categories}
+            <strong>Categories: </strong>
+            {categoryIds &&
+              categoryIds.map((id) => (
+                <Tag backgroundColor="#bb86fc" color="#fff" key={id}>
+                  {capFirstIndex(categoryMap[id])}
+                </Tag>
+              ))}
           </Text>
         </CardBody>
       </Card>
