@@ -29,7 +29,14 @@ export const EditEvent = ({ data }) => {
 
   return (
     <Box>
-      <Button w="6rem" onClick={onOpen}>
+      <Button
+        backgroundColor="#bb86fc"
+        color="#fff"
+        _hover={{ backgroundColor: "#fff", color: "#bb86fc" }}
+        transition="300ms ease-in"
+        w="6rem"
+        onClick={onOpen}
+      >
         Edit
       </Button>
       <Modal

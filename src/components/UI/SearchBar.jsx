@@ -11,14 +11,16 @@ export const SearchBar = ({ placeholder, changeFn, value }) => {
       >
         <InputLeftElement
           pointerEvents="none"
-          children={<SearchIcon color="gray" />}
+          children={<SearchIcon color="#F5F5F5" />}
         />
         <Input
           type="text"
           placeholder={placeholder}
-          border="1px solid black"
+          _placeholder={{ color: "#F5F5F5" }}
+          border="1px solid #F5F5F5"
           onChange={changeFn}
           value={value}
+          color="#F5F5F5"
         ></Input>
       </InputGroup>
     </Center>

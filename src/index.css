@@ -4,6 +4,31 @@
   box-sizing: border-box;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #f5f5f5;
+}
+
+p {
+  color: #b0b0b0;
+}
+
+.chakra-ui-light {
+  background-color: #121212;
+}
+
+.chakra-card__body {
+  background-color: #1e1e1e;
+}
+.chakra-card__header {
+  background-color: #1e1e1e;
+  border-radius: 0.25rem 0.25rem 0rem 0rem;
+}
+
 .form {
   display: flex;
   flex-direction: column;

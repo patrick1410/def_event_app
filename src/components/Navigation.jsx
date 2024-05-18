@@ -5,7 +5,12 @@ export const Navigation = () => {
   return (
     <Box as="nav">
       <UnorderedList style={{ listStyle: "none", margin: 0 }}>
-        <ListItem _hover={{ color: "#0000EE" }} mb={5}>
+        <ListItem
+          color="#F5F5F5"
+          _hover={{ color: "#bb86fc" }}
+          mb={5}
+          transition="300ms ease-in"
+        >
           <Link
             style={{
               textTransform: "uppercase",

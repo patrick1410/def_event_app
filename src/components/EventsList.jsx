@@ -29,7 +29,12 @@ export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {
   if (sortBy) items = sortedEvents;
   if (searchField) items = filteredEvents;
 
-  if (items.length === 0) return <Center as="p">No events found...</Center>;
+  if (items.length === 0)
+    return (
+      <Center as="p" mt={10} color="#F5F5F5">
+        No events found...
+      </Center>
+    );
 
   return (
     <Center as="div" className="event-list">

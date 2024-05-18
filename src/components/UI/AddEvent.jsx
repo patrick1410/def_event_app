@@ -52,7 +52,15 @@ export const AddEvent = ({ setNewEventAdded }) => {
 
   return (
     <Center>
-      <Button onClick={onOpen}>Add Event</Button>
+      <Button
+        backgroundColor="#bb86fc"
+        color="#fff"
+        _hover={{ backgroundColor: "#fff", color: "#bb86fc" }}
+        transition="300ms ease-in"
+        onClick={onOpen}
+      >
+        Add Event
+      </Button>
       <Modal
         isCentered
         onClose={onClose}
