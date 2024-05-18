@@ -81,18 +81,16 @@
     },
     {
       "id": "52e0",
-      "createdBy": "TEST",
-      "title": "TEST",
-      "description": "TEST",
+      "createdBy": "TEST1",
+      "title": "TEST1",
+      "description": "TEST1",
       "image": "https://images.sftcdn.net/images/t_app-cover-l,f_auto/p/ce2ece60-9b32-11e6-95ab-00163ed833e7/260663710/the-test-fun-for-friends-screenshot.jpg",
       "categoryIds": [
-        1,
-        2,
         3
       ],
-      "location": "TEST",
-      "startTime": "2024-05-18T15:17",
-      "endTime": "2024-05-19T15:17"
+      "location": "TEST1",
+      "startTime": "2024-05-18T19:25",
+      "endTime": "2024-05-19T19:25"
     }
   ],
   "categories": [

@@ -76,7 +76,7 @@ export const EventsPage = () => {
         value={searchField}
         changeFn={handleFilter}
       />
-      <SelectSort sortBy={sortBy} changeFn={handleSortChange} />
+      <SelectSort data={data} sortBy={sortBy} changeFn={handleSortChange} />
       <EventsList
         data={data}
         filteredEvents={filteredEvents}

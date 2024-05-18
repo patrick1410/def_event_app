@@ -1,7 +1,13 @@
 import { Select, Center } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 
-export const SelectSort = ({ sortBy, changeFn }) => {
+export const SelectSort = ({ sortBy, changeFn, data }) => {
+  const { categories } = data;
+
+  const style = { backgroundColor: "#121212", color: "#F5F5F5" };
+
+  const capFirstIndex = (str) => str.charAt(0).toUpperCase() + str.slice(1); // capitalize first index
+
   return (
     <Center>
       <Select
@@ -11,35 +17,16 @@ export const SelectSort = ({ sortBy, changeFn }) => {
         value={sortBy}
         onChange={changeFn}
         border="1px solid #F5F5F5"
-        style={{
-          backgroundColor: "#121212",
-          color: "#F5F5F5",
-        }}
+        style={style}
       >
-        <option
-          value=""
-          style={{ backgroundColor: "#121212", color: "#F5F5F5" }}
-        >
+        <option value="" style={style}>
           All
         </option>
-        <option
-          value="1"
-          style={{ backgroundColor: "#121212", color: "#F5F5F5" }}
-        >
-          Sports
-        </option>
-        <option
-          value="2"
-          style={{ backgroundColor: "#121212", color: "#F5F5F5" }}
-        >
-          Games
-        </option>
-        <option
-          value="3"
-          style={{ backgroundColor: "#121212", color: "#F5F5F5" }}
-        >
-          Relaxation
-        </option>
+        {categories.map(({ name, id }) => (
+          <option value={id} key={id} style={style}>
+            {capFirstIndex(name)}
+          </option>
+        ))}
       </Select>
     </Center>
   );
