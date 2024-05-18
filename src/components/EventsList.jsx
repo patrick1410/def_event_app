@@ -75,13 +75,12 @@ export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {
                 <Link to={`/event/${id}`}>
                   <Image src={image} alt={title} />
                 </Link>
-
                 <Text>
                   <em>Description: </em>
                   {description}
                 </Text>
                 <Text>
-                  <em> Start: </em>
+                  <em>Start: </em>
                   {convertDate(startTime)}
                 </Text>
                 <Text>
@@ -89,7 +88,7 @@ export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {
                   {convertDate(endTime)}
                 </Text>
                 <Text>
-                  <em> Categories: </em>
+                  <em>Categories: </em>
                   {categoryIds
                     ? categoryIds
                         .map((id) => capFirstIndex(categoryMap[id]))
