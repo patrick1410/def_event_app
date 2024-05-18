@@ -26,11 +26,11 @@ export const loader = async () => {
 export const EventsPage = () => {
   const [data, setData] = useState(useLoaderData());
 
-  const [shouldFetchData, setShouldFetchData] = useState(false); // Initialize shouldFetchData
-  const [newEventAdded, setNewEventAdded] = useState(false); // Initialize newEventAdded
+  const [shouldFetchData, setShouldFetchData] = useState(false);
+  const [newEventAdded, setNewEventAdded] = useState(false);
 
-  const [filteredEvents, setFilteredEvents] = useState([]); // Initialize filteredEvents
-  const [searchField, setSearchField] = useState(""); // Initialize searchField
+  const [filteredEvents, setFilteredEvents] = useState([]);
+  const [searchField, setSearchField] = useState("");
   const [sortBy, setSortBy] = useState("");
 
   useEffect(() => {

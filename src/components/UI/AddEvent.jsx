@@ -42,8 +42,8 @@ export const AddEvent = ({ setNewEventAdded }) => {
         headers: { "Content-Type": "application/json;charset=utf-8" },
       });
       const createdEvent = await response.json();
-      setEvents([createdEvent, ...events]); // Voeg het gecreëerde evenement toe aan de staat
-      setNewEventAdded(true); // Roep de functie aan om de EventsPage te informeren dat een nieuw evenement is toegevoegd
+      setEvents([createdEvent, ...events]); // Add created event to events state
+      setNewEventAdded(true); // Call setNewEventAdded to re-render
       onClose(); // Close modal
     } catch (error) {
       console.log(error);
