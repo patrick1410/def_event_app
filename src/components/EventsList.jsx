@@ -90,12 +90,11 @@ export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {
                 </Text>
                 <Text>
                   <strong>Categories: </strong>
-                  {categoryIds &&
-                    categoryIds.map((id) => (
-                      <Tag backgroundColor="#bb86fc" color="#fff" key={id}>
-                        {capFirstIndex(categoryMap[id])}
-                      </Tag>
-                    ))}
+                  {categoryIds.map((id) => (
+                    <Tag backgroundColor="#bb86fc" color="#fff" key={id}>
+                      {capFirstIndex(categoryMap[id])}
+                    </Tag>
+                  ))}
                 </Text>
               </CardBody>
             </Card>
