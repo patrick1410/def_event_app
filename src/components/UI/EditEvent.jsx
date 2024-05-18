@@ -22,7 +22,18 @@ import { useForm } from "react-hook-form";
 
 export const EditEvent = ({ data }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      createdBy: data.events[0].createdBy,
+      title: data.events[0].title,
+      description: data.events[0].description,
+      image: data.events[0].image,
+      categoryIds: data.events[0].categoryIds[0],
+      location: data.events[0].location,
+      startTime: data.events[0].startTime,
+      endTime: data.events[0].endTime,
+    },
+  });
 
   const { id } = data.events[0];
   const toast = useToast();

@@ -11,6 +11,7 @@ import {
 
 import { Link } from "react-router-dom";
 import { createCategoryMap } from "../utils/mapCreators";
+import { convertDate } from "../utils/dateManipulator";
 import { matchSorter } from "match-sorter";
 
 export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {
@@ -81,11 +82,11 @@ export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {
                 </Text>
                 <Text>
                   <em> Start: </em>
-                  {startTime}
+                  {convertDate(startTime)}
                 </Text>
                 <Text>
                   <em>End: </em>
-                  {endTime}
+                  {convertDate(endTime)}
                 </Text>
                 <Text>
                   <em> Categories: </em>

@@ -1,4 +1,5 @@
 import { createCategoryMap, createUserMap } from "../utils/mapCreators";
+import { convertDate } from "../utils/dateManipulator";
 import {
   Card,
   CardHeader,
@@ -50,10 +51,10 @@ export const EventItem = ({ data }) => {
             <em>Location:</em> {location}
           </Text>
           <Text>
-            <em>Start:</em> {startTime}
+            <em>Start:</em> {convertDate(startTime)}
           </Text>
           <Text>
-            <em>End:</em> {endTime}
+            <em>End:</em> {convertDate(endTime)}
           </Text>
           <Text>
             <em>Categories:</em>{" "}
