@@ -6,3 +6,6 @@ export const convertDate = (dateStr) => {
 
   return `${day}-${month}-${year}, ${timePart}u`; // return manipulated dateString
 };
+
+export const capFirstIndex = (str) =>
+  str.charAt(0).toUpperCase() + str.slice(1); // capitalize first index

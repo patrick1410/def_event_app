@@ -1,5 +1,5 @@
 import { createCategoryMap, createUserMap } from "../utils/mapCreators";
-import { convertDate } from "../utils/dateManipulator";
+import { convertDate, capFirstIndex } from "../utils/strManipulator";
 import {
   Card,
   CardHeader,
@@ -59,7 +59,9 @@ export const EventItem = ({ data }) => {
           <Text>
             <em>Categories:</em>{" "}
             {categoryIds
-              ? categoryIds.map((id) => categoryMap[id]).join(", ")
+              ? categoryIds
+                  .map((id) => capFirstIndex(categoryMap[id]))
+                  .join(", ")
               : categories}
           </Text>
         </CardBody>

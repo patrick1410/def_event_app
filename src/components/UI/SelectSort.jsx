@@ -1,12 +1,11 @@
 import { Select, Center } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
+import { capFirstIndex } from "../../utils/strManipulator";
 
 export const SelectSort = ({ sortBy, changeFn, data }) => {
   const { categories } = data;
 
   const style = { backgroundColor: "#121212", color: "#F5F5F5" };
-
-  const capFirstIndex = (str) => str.charAt(0).toUpperCase() + str.slice(1); // capitalize first index
 
   return (
     <Center>

@@ -11,7 +11,7 @@ import {
 
 import { Link } from "react-router-dom";
 import { createCategoryMap } from "../utils/mapCreators";
-import { convertDate } from "../utils/dateManipulator";
+import { convertDate, capFirstIndex } from "../utils/strManipulator";
 import { matchSorter } from "match-sorter";
 
 export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {
@@ -91,7 +91,9 @@ export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {
                 <Text>
                   <em> Categories: </em>
                   {categoryIds
-                    ? categoryIds.map((id) => categoryMap[id]).join(", ")
+                    ? categoryIds
+                        .map((id) => capFirstIndex(categoryMap[id]))
+                        .join(", ")
                     : categories}
                 </Text>
               </CardBody>
