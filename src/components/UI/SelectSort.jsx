@@ -1,6 +1,6 @@
 import { Select, Center } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import { capFirstIndex } from "../../utils/strManipulator";
+import { capFirstIndex } from "../../utils/manipulators";
 
 export const SelectSort = ({ sortBy, changeFn, data }) => {
   const { categories } = data;

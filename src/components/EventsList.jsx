@@ -12,7 +12,7 @@ import {
 
 import { Link } from "react-router-dom";
 import { createCategoryMap } from "../utils/mapCreators";
-import { convertDate, capFirstIndex } from "../utils/strManipulator";
+import { convertDate, capFirstIndex } from "../utils/manipulators";
 import { matchSorter } from "match-sorter";
 
 export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {

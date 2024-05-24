@@ -17,12 +17,25 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 
+import { getCreatedBy } from "../../utils/manipulators";
+
 import { editEvent } from "../../utils/requestHandlers";
 import { useForm } from "react-hook-form";
 
 export const EditEvent = ({ data }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      createdBy: getCreatedBy(data.events[0].createdBy, data.users),
+      title: data.events[0].title,
+      description: data.events[0].description,
+      image: data.events[0].image,
+      categoryIds: data.events[0].categoryIds.map((id) => id.toString()),
+      location: data.events[0].location,
+      startTime: data.events[0].startTime.slice(0, 16),
+      endTime: data.events[0].endTime.slice(0, 16),
+    },
+  });
 
   const { id } = data.events[0];
   const toast = useToast();

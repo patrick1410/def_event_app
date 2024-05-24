@@ -1,5 +1,5 @@
 import { createCategoryMap, createUserMap } from "../utils/mapCreators";
-import { convertDate, capFirstIndex } from "../utils/strManipulator";
+import { convertDate, capFirstIndex } from "../utils/manipulators";
 import {
   Card,
   CardHeader,

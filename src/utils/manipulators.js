@@ -9,3 +9,11 @@ export const convertDate = (dateStr) => {
 
 export const capFirstIndex = (str) =>
   str.charAt(0).toUpperCase() + str.slice(1); // capitalize first index
+
+export const getCreatedBy = (createdBy, users) => {
+  if (typeof createdBy === "number") {
+    const user = users.find((user) => user.id === createdBy.toString()); // Find the user with the matching ID
+    return user ? user.name : createdBy; // Return the user's name if found, otherwise return the original createdBy value
+  }
+  return createdBy;
+};
