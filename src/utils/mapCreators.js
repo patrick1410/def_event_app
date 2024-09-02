@@ -1,4 +1,4 @@
-// createCategoryMap functie
+// createCategoryMap functie (UN-USED DELETE LATER!)
 export const createCategoryMap = (categories) => {
   const categoryMap = {};
   categories.forEach((category) => {

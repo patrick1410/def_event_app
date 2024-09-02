@@ -11,14 +11,11 @@ import {
 } from "@chakra-ui/react";
 
 import { Link } from "react-router-dom";
-import { createCategoryMap } from "../utils/mapCreators";
 import { convertDate, capFirstIndex } from "../utils/manipulators";
 import { matchSorter } from "match-sorter";
 
 export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {
-  const { events, categories } = data;
-
-  const categoryMap = createCategoryMap(categories);
+  const { events } = data;
 
   const sortedEvents = matchSorter(events, sortBy, {
     keys: ["categoryIds"],
@@ -55,7 +52,7 @@ export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {
             image,
             startTime,
             endTime,
-            categoryIds,
+            categories,
           }) => (
             <Card
               key={id}
@@ -63,7 +60,7 @@ export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {
               _hover={{ transform: "scale(1.05)" }}
             >
               <CardHeader>
-                <Link to={`/event/${id}`}>
+                <Link to={`/events/${id}`}>
                   <Heading textAlign="center">{title}</Heading>
                 </Link>
               </CardHeader>
@@ -73,7 +70,7 @@ export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {
                 alignItems="center"
                 justifyContent="center"
               >
-                <Link to={`/event/${id}`}>
+                <Link to={`/events/${id}`}>
                   <Image src={image} alt={title} />
                 </Link>
                 <Text>
@@ -90,9 +87,9 @@ export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {
                 </Text>
                 <Text>
                   <strong>Categories: </strong>
-                  {categoryIds.map((id) => (
+                  {categories.map((category, id) => (
                     <Tag backgroundColor="#bb86fc" color="#fff" key={id}>
-                      {capFirstIndex(categoryMap[id])}
+                      {capFirstIndex(category.name)}
                     </Tag>
                   ))}
                 </Text>

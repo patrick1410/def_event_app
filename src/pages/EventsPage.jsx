@@ -11,8 +11,10 @@ import { Box } from "@chakra-ui/react";
 
 export const loader = async () => {
   try {
-    const events = await fetch("http://localhost:3000/events");
-    const categories = await fetch("http://localhost:3000/categories");
+    const events = await fetch("https://event-api-prisma.onrender.com/events");
+    const categories = await fetch(
+      "https://event-api-prisma.onrender.com/categories"
+    );
 
     return {
       events: await events.json(),

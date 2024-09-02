@@ -1,4 +1,4 @@
-import { createCategoryMap, createUserMap } from "../utils/mapCreators";
+import { createUserMap } from "../utils/mapCreators";
 import { convertDate, capFirstIndex } from "../utils/manipulators";
 import {
   Card,
@@ -19,14 +19,16 @@ export const EventItem = ({ data }) => {
     location,
     startTime,
     endTime,
-    categoryIds,
-    createdBy,
-  } = data.events[0];
+    categories,
+    userId,
+  } = data.event;
 
-  const { categories, users } = data;
+  const { users } = data;
 
-  const categoryMap = createCategoryMap(categories);
   const userMap = createUserMap(users);
+
+  // Haal de gebruikersnaam op basis van userId
+  const userName = userMap[userId] || "Unknown User";
 
   return (
     <Center>
@@ -42,7 +44,7 @@ export const EventItem = ({ data }) => {
         >
           <Text>
             <strong>By: </strong>
-            {typeof createdBy === "number" ? userMap[createdBy] : createdBy}
+            {userName}
           </Text>
           <Image src={image} alt={title} />
           <Text>
@@ -63,9 +65,9 @@ export const EventItem = ({ data }) => {
           </Text>
           <Text>
             <strong>Categories: </strong>
-            {categoryIds.map((id) => (
+            {categories.map((category, id) => (
               <Tag backgroundColor="#bb86fc" color="#fff" key={id}>
-                {capFirstIndex(categoryMap[id])}
+                {capFirstIndex(category.name)}
               </Tag>
             ))}
           </Text>
