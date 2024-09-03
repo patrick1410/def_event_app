@@ -17,7 +17,20 @@ import { matchSorter } from "match-sorter";
 export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {
   const { events } = data;
 
-  const sortedEvents = matchSorter(events, sortBy, {
+  // This function takes events as an input and returns them with a new property "categoryIds" so it is easily to sort
+  const formatEvents = (events) => {
+    return events.map((event) => {
+      // Return original event + categoryId(s)
+      return {
+        ...event,
+        categoryIds: event.categories.map((category) => category.id),
+      };
+    });
+  };
+
+  const formattedEvents = formatEvents(events);
+
+  const sortedEvents = matchSorter(formattedEvents, sortBy, {
     keys: ["categoryIds"],
   });
 

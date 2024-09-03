@@ -4,6 +4,7 @@ import { capFirstIndex } from "../../utils/manipulators";
 
 export const SelectSort = ({ sortBy, changeFn, data }) => {
   const { categories } = data;
+  // data.categories.map((id) => console.log(id));
 
   const style = { backgroundColor: "#121212", color: "#F5F5F5" };
 
