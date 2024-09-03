@@ -31,3 +31,7 @@ p {
   display: flex;
   padding: 10px 0 10px;
 }
+
+.chakra-text.css-0 {
+  text-align: center;
+}

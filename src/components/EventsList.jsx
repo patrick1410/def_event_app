@@ -8,6 +8,7 @@ import {
   Center,
   SimpleGrid,
   Tag,
+  Box,
 } from "@chakra-ui/react";
 
 import { Link } from "react-router-dom";
@@ -86,26 +87,42 @@ export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {
                 <Link to={`/events/${id}`}>
                   <Image src={image} alt={title} />
                 </Link>
-                <Text>
-                  <strong>Description: </strong>
-                  {description}
-                </Text>
-                <Text>
-                  <strong>Start: </strong>
-                  {convertDate(startTime)}
-                </Text>
-                <Text>
-                  <strong>End: </strong>
-                  {convertDate(endTime)}
-                </Text>
-                <Text>
-                  <strong>Categories: </strong>
-                  {categories.map((category, id) => (
-                    <Tag mr={2} backgroundColor="#bb86fc" color="#fff" key={id}>
-                      {capFirstIndex(category.name)}
-                    </Tag>
-                  ))}
-                </Text>
+                <Box
+                  w="100%"
+                  h="100%"
+                  display="flex"
+                  flexDir="column"
+                  justifyContent="center"
+                  alignItems="center"
+                  p={3}
+                  pb={0}
+                >
+                  <Text>
+                    <strong>Description: </strong>
+                    {description}
+                  </Text>
+                  <Text>
+                    <strong>Start: </strong>
+                    {convertDate(startTime)}
+                  </Text>
+                  <Text>
+                    <strong>End: </strong>
+                    {convertDate(endTime)}
+                  </Text>
+                  <Text>
+                    <strong>Categories: </strong>
+                    {categories.map((category, id) => (
+                      <Tag
+                        mr={2}
+                        backgroundColor="#bb86fc"
+                        color="#fff"
+                        key={id}
+                      >
+                        {capFirstIndex(category.name)}
+                      </Tag>
+                    ))}
+                  </Text>
+                </Box>
               </CardBody>
             </Card>
           )
