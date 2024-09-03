@@ -1,3 +1,5 @@
+import { convertToLocal } from "./manipulators";
+
 // deleteEvent functie
 export const deleteEvent = async (id) => {
   try {
@@ -24,25 +26,30 @@ export const deleteEvent = async (id) => {
 };
 
 // editEvent functie
-export const editEvent = async (eventId, event, onClose, toast) => {
+export const editEvent = async (id, event, onClose, toast) => {
   try {
-    console.log("Editing event with ID:", eventId);
+    console.log("Editing event with ID:", id);
 
-    const response = await fetch(`http://localhost:3000/events/${eventId}`, {
-      method: "PUT",
-      body: JSON.stringify({
-        id: eventId,
-        createdBy: event.createdBy,
-        title: event.title,
-        description: event.description,
-        image: event.image,
-        categoryIds: event.categoryIds.map((id) => parseInt(id)),
-        location: event.location,
-        startTime: event.startTime,
-        endTime: event.endTime,
-      }),
-      headers: { "Content-Type": "application/json;charset=utf-8" },
-    });
+    const response = await fetch(
+      `https://event-api-prisma.onrender.com/events/${id}`,
+      {
+        method: "PUT",
+        body: JSON.stringify({
+          id: id,
+          createdBy: event.createdBy,
+          title: event.title,
+          description: event.description,
+          image: event.image,
+          categoryIds: event.categoryIds.map((id) => id.toString()),
+          location: event.location,
+          startTime: convertToLocal(event.startTime),
+          endTime: convertToLocal(event.endTime),
+        }),
+        headers: { "Content-Type": "application/json;charset=utf-8" },
+      }
+    );
+
+    console.log(response.body);
 
     if (response.ok) {
       console.log("Event succesfully edited");

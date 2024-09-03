@@ -1,3 +1,5 @@
+import moment from "moment-timezone";
+
 // convertDate functie
 export const convertDate = (dateStr) => {
   const slicedDate = dateStr.slice(0, 16); // Slice dateStr to YYYY-MM-DD-TTTT
@@ -10,10 +12,15 @@ export const convertDate = (dateStr) => {
 export const capFirstIndex = (str) =>
   str.charAt(0).toUpperCase() + str.slice(1); // capitalize first index
 
+// getCreatedBy functie (UN-USED DELETE LATER!)
 export const getCreatedBy = (createdBy, users) => {
   if (typeof createdBy === "number") {
     const user = users.find((user) => user.id === createdBy.toString()); // Find the user with the matching ID
     return user ? user.name : createdBy; // Return the user's name if found, otherwise return the original createdBy value
   }
   return createdBy;
+};
+
+export const convertToLocal = (utcDateTime) => {
+  return moment.utc(utcDateTime).local(); // Converts to local time
 };

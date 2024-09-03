@@ -17,27 +17,36 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 
-import { getCreatedBy } from "../../utils/manipulators";
+// import { createUserMap } from "../../utils/mapCreators";
 
 import { editEvent } from "../../utils/requestHandlers";
 import { useForm } from "react-hook-form";
 
 export const EditEvent = ({ data }) => {
+  // const { users } = data;
+
+  // const userMap = createUserMap(users);
+
+  // Haal de gebruikersnaam op basis van userId
+  // const userName = userMap[data.event.userId] || "Unknown User";
+
+  console.log(data.event.startTime);
+  console.log(data.event.endTime);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { register, handleSubmit } = useForm({
     defaultValues: {
-      createdBy: getCreatedBy(data.events[0].createdBy, data.users),
-      title: data.events[0].title,
-      description: data.events[0].description,
-      image: data.events[0].image,
-      categoryIds: data.events[0].categoryIds.map((id) => id.toString()),
-      location: data.events[0].location,
-      startTime: data.events[0].startTime.slice(0, 16),
-      endTime: data.events[0].endTime.slice(0, 16),
+      createdBy: data.event.userId,
+      title: data.event.title,
+      description: data.event.description,
+      image: data.event.image,
+      categoryIds: data.event.categories.map(({ id }) => id),
+      location: data.event.location,
+      startTime: data.event.startTime.slice(0, 16),
+      endTime: data.event.endTime.slice(0, 16),
     },
   });
 
-  const { id } = data.events[0];
+  const { id } = data.event;
   const toast = useToast();
 
   return (
@@ -64,7 +73,7 @@ export const EditEvent = ({ data }) => {
           <ModalCloseButton />
           <ModalBody>
             <FormControl className="form">
-              <FormLabel className="label" htmlFor="created-by">
+              {/* <FormLabel className="label" htmlFor="created-by">
                 Created By:
               </FormLabel>
               <Input
@@ -72,7 +81,7 @@ export const EditEvent = ({ data }) => {
                 id="created-by"
                 placeholder="Enter your name..."
                 {...register("createdBy", { required: true })}
-              />
+              /> */}
               <FormLabel className="label" htmlFor="title">
                 Event:
               </FormLabel>

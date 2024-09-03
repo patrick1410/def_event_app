@@ -1,3 +1,5 @@
+import { convertToLocal } from "../../utils/manipulators";
+
 import {
   useDisclosure,
   Button,
@@ -38,8 +40,8 @@ export const AddEvent = ({ setNewEventAdded }) => {
             image: event.image,
             categoryIds: event.categoryIds.map((id) => id.toString()),
             location: event.location,
-            startTime: new Date(event.startTime),
-            endTime: new Date(event.endTime),
+            startTime: new Date(convertToLocal(event.startTime)),
+            endTime: new Date(convertToLocal(event.endTime)),
           }),
           headers: { "Content-Type": "application/json;charset=utf-8" },
         }

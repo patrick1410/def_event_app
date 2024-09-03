@@ -61,7 +61,7 @@ export const EventPage = () => {
         spacing={10}
       >
         <DeleteEvent clickFn={deleteEvent} id={id} />
-        {/* <EditEvent data={data} /> */}
+        <EditEvent data={data} />
       </Stack>
     </Box>
   );
