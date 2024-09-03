@@ -11,7 +11,10 @@ export const createCategoryMap = (categories) => {
 export const createUserMap = (users) => {
   const userMap = {};
   users.forEach((user) => {
-    userMap[user.id] = user.name;
+    userMap[user.id] = {
+      name: user.name || "Unknown User",
+      image: user.image,
+    };
   });
   return userMap;
 };

@@ -101,7 +101,7 @@ export const EventsList = ({ data, filteredEvents, searchField, sortBy }) => {
                 <Text>
                   <strong>Categories: </strong>
                   {categories.map((category, id) => (
-                    <Tag backgroundColor="#bb86fc" color="#fff" key={id}>
+                    <Tag mr={2} backgroundColor="#bb86fc" color="#fff" key={id}>
                       {capFirstIndex(category.name)}
                     </Tag>
                   ))}

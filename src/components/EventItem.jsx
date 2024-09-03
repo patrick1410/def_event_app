@@ -9,6 +9,8 @@ import {
   Image,
   Center,
   Tag,
+  Avatar,
+  Flex,
 } from "@chakra-ui/react";
 
 export const EventItem = ({ data }) => {
@@ -27,8 +29,8 @@ export const EventItem = ({ data }) => {
 
   const userMap = createUserMap(users);
 
-  // Haal de gebruikersnaam op basis van userId
-  const userName = userMap[userId] || "Unknown User";
+  // Fetch the user data based on userId
+  const userData = userMap[userId];
 
   return (
     <Center>
@@ -42,10 +44,13 @@ export const EventItem = ({ data }) => {
           alignItems="center"
           justifyContent="center"
         >
-          <Text>
-            <strong>By: </strong>
-            {userName}
-          </Text>
+          <Flex flexDir="column" alignItems="center">
+            <Text>
+              <strong>By: </strong>
+              {userData.name}
+            </Text>
+            <Avatar m={2} size="lg" name={userData.name} src={userData.image} />
+          </Flex>
           <Image src={image} alt={title} />
           <Text>
             <strong>Description: </strong>
@@ -66,7 +71,7 @@ export const EventItem = ({ data }) => {
           <Text>
             <strong>Categories: </strong>
             {categories.map((category, id) => (
-              <Tag backgroundColor="#bb86fc" color="#fff" key={id}>
+              <Tag mr={2} backgroundColor="#bb86fc" color="#fff" key={id}>
                 {capFirstIndex(category.name)}
               </Tag>
             ))}
