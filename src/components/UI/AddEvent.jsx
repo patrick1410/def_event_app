@@ -27,20 +27,23 @@ export const AddEvent = ({ setNewEventAdded }) => {
 
   const createEvent = async (event) => {
     try {
-      const response = await fetch("http://localhost:3000/events", {
-        method: "POST",
-        body: JSON.stringify({
-          createdBy: event.createdBy,
-          title: event.title,
-          description: event.description,
-          image: event.image,
-          categoryIds: event.categoryIds.map((id) => parseInt(id)),
-          location: event.location,
-          startTime: event.startTime,
-          endTime: event.endTime,
-        }),
-        headers: { "Content-Type": "application/json;charset=utf-8" },
-      });
+      const response = await fetch(
+        "https://event-api-prisma.onrender.com/events",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            createdBy: event.createdBy,
+            title: event.title,
+            description: event.description,
+            image: event.image,
+            categoryIds: event.categoryIds.map((id) => id.toString()),
+            location: event.location,
+            startTime: new Date(event.startTime),
+            endTime: new Date(event.endTime),
+          }),
+          headers: { "Content-Type": "application/json;charset=utf-8" },
+        }
+      );
       const createdEvent = await response.json();
       setEvents([createdEvent, ...events]); // Add created event to events state
       setNewEventAdded(true); // Call setNewEventAdded to re-render
