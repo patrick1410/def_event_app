@@ -30,8 +30,6 @@ export const EditEvent = ({ data }) => {
   // Haal de gebruikersnaam op basis van userId
   // const userName = userMap[data.event.userId] || "Unknown User";
 
-  console.log(data.event.startTime);
-  console.log(data.event.endTime);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { register, handleSubmit } = useForm({
     defaultValues: {
@@ -47,7 +45,19 @@ export const EditEvent = ({ data }) => {
   });
 
   const { id } = data.event;
+
+  const jwt = localStorage.getItem("jwt");
   const toast = useToast();
+
+  const noPermission = () => {
+    toast({
+      title: "Access denied",
+      description: "You must be logged in to perform this action.",
+      status: "warning",
+      duration: 5000,
+      isClosable: true,
+    });
+  };
 
   return (
     <Box>
@@ -57,7 +67,7 @@ export const EditEvent = ({ data }) => {
         _hover={{ backgroundColor: "#fff", color: "#bb86fc" }}
         transition="300ms ease-in"
         w="6rem"
-        onClick={onOpen}
+        onClick={jwt ? onOpen : noPermission}
       >
         Edit
       </Button>
