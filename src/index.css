@@ -35,3 +35,15 @@ p {
 .chakra-text.css-0 {
   text-align: center;
 }
+
+.chakra-text.logout.css-0 {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #f5f5f5;
+  cursor: pointer;
+}
+
+.chakra-text.logout.css-0:hover {
+  color: #bb86fc;
+  transition: 300ms ease-in;
+}

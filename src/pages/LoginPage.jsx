@@ -14,9 +14,12 @@ import { login } from "../utils/login";
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 export const LoginPage = () => {
   const toast = useToast();
+  const navigate = useNavigate();
+
   const { register, handleSubmit } = useForm();
   const [show, setShow] = useState(false);
 
@@ -28,10 +31,10 @@ export const LoginPage = () => {
     const success = await login(username, password);
 
     if (success) {
-      window.history.back(); // redirect to home
+      navigate("/"); // Redirect to home
       console.log("succes");
       toast({
-        title: "Logged In!",
+        title: "Logged in!",
         description:
           "You've successfully logged in! You can now access and perform authorized operations.",
         status: "success",
