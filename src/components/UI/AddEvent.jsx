@@ -29,6 +29,7 @@ export const AddEvent = ({ setNewEventAdded }) => {
 
   const createEvent = async (event) => {
     try {
+      const token = localStorage.getItem("jwt");
       const response = await fetch(
         "https://event-api-prisma.onrender.com/events",
         {
@@ -43,7 +44,10 @@ export const AddEvent = ({ setNewEventAdded }) => {
             startTime: new Date(convertToLocal(event.startTime)),
             endTime: new Date(convertToLocal(event.endTime)),
           }),
-          headers: { "Content-Type": "application/json;charset=utf-8" },
+          headers: {
+            "Content-Type": "application/json;charset=utf-8",
+            Authorization: `${token}`,
+          },
         }
       );
       const createdEvent = await response.json();

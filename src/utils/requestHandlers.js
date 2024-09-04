@@ -6,10 +6,12 @@ export const deleteEvent = async (id) => {
     if (confirm("Are you sure you want to delete the event?")) {
       console.log("Deleting event with ID:", id);
 
+      const token = localStorage.getItem("jwt");
       const response = await fetch(
         `https://event-api-prisma.onrender.com/events/${id}`,
         {
           method: "DELETE",
+          headers: { Authorization: `${token}` },
         }
       );
 
@@ -29,7 +31,7 @@ export const deleteEvent = async (id) => {
 export const editEvent = async (id, event, onClose, toast) => {
   try {
     console.log("Editing event with ID:", id);
-
+    const token = localStorage.getItem("jwt");
     const response = await fetch(
       `https://event-api-prisma.onrender.com/events/${id}`,
       {
@@ -45,7 +47,10 @@ export const editEvent = async (id, event, onClose, toast) => {
           startTime: convertToLocal(event.startTime),
           endTime: convertToLocal(event.endTime),
         }),
-        headers: { "Content-Type": "application/json;charset=utf-8" },
+        headers: {
+          "Content-Type": "application/json;charset=utf-8",
+          Authorization: `${token}`,
+        },
       }
     );
 
