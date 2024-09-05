@@ -6,6 +6,7 @@ import { EditEvent } from "../components/UI/EditEvent";
 import { Box, Stack } from "@chakra-ui/react";
 import { DeleteEvent } from "../components/UI/DeleteEvent";
 import { deleteEvent } from "../utils/requestHandlers";
+import { LoadingComponent } from "../components/UI/loadingComponent";
 
 export const loader = async ({ params }) => {
   try {
@@ -28,33 +29,20 @@ export const loader = async ({ params }) => {
 };
 
 export const EventPage = () => {
-  // const [data, setData] = useState(useLoaderData());
-  // // const data = useLoaderData();
-  // console.dir(data);
-
-  // const id = data.event.id;
-  // console.log(id);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       setData(data);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
-
   const initialData = useLoaderData(); // Haal initiële data op
+
   const [data, setData] = useState(initialData);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
   const [shouldFetchData, setShouldFetchData] = useState(false);
+
   const id = data.event.id;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true);
         const response = await fetch(
           `https://event-api-prisma.onrender.com/events/${data.event.id}`
         );
@@ -62,6 +50,9 @@ export const EventPage = () => {
         setData((prevData) => ({ ...prevData, event: result }));
       } catch (error) {
         console.error("Error fetching event data:", error);
+        setError(error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -75,7 +66,9 @@ export const EventPage = () => {
     setShouldFetchData(true); // Zet de flag om gegevens opnieuw op te halen
   };
 
-  return (
+  return isLoading ? (
+    <LoadingComponent />
+  ) : (
     <Box>
       <EventItem data={data} />
       <Stack

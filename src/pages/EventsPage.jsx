@@ -9,6 +9,8 @@ import { SelectSort } from "../components/UI/SelectSort";
 import { EventsList } from "../components/EventsList";
 import { Box } from "@chakra-ui/react";
 
+import { LoadingComponent } from "../components/UI/loadingComponent";
+
 export const loader = async () => {
   try {
     const events = await fetch("https://event-api-prisma.onrender.com/events");
@@ -26,7 +28,11 @@ export const loader = async () => {
 };
 
 export const EventsPage = () => {
-  const [data, setData] = useState(useLoaderData());
+  const initialData = useLoaderData(); // Haal initiële data op
+
+  const [data, setData] = useState(initialData);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const [shouldFetchData, setShouldFetchData] = useState(false);
   const [newEventAdded, setNewEventAdded] = useState(false);
@@ -38,13 +44,16 @@ export const EventsPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true);
         const newData = await loader();
         setData(newData);
       } catch (error) {
         console.error(error);
+        setError(error);
+      } finally {
+        setIsLoading(false);
       }
     };
-
     if (shouldFetchData) {
       fetchData();
       setShouldFetchData(false);
@@ -70,7 +79,9 @@ export const EventsPage = () => {
     setSortBy(value);
   }; // Sorteer functie voor SelectSort component
 
-  return (
+  return isLoading ? (
+    <LoadingComponent />
+  ) : (
     <Box>
       <AddEvent setNewEventAdded={setNewEventAdded} />
       <SearchBar
