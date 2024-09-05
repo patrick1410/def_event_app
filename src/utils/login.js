@@ -14,7 +14,6 @@ export const login = async (username, password) => {
   } else {
     const data = await response.json();
     localStorage.setItem("jwt", data.token); // Sla het JWT op in localStorage
-    console.log(data.token);
     return true;
   }
 };

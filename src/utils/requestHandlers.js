@@ -16,10 +16,7 @@ export const deleteEvent = async (id, toast) => {
         }
       );
 
-      console.log("Response status:", response.statusText);
-
       if (response.ok) {
-        console.log("Event successfully deleted");
         window.history.back();
         toast({
           title: "Event deleted",
@@ -38,7 +35,6 @@ export const deleteEvent = async (id, toast) => {
 // editEvent functie
 export const editEvent = async (id, event, onClose, toast, onUpdate) => {
   try {
-    console.log("Editing event with ID:", id);
     const token = getJWT();
     const response = await fetch(
       `https://event-api-prisma.onrender.com/events/${id}`,
@@ -62,11 +58,8 @@ export const editEvent = async (id, event, onClose, toast, onUpdate) => {
       }
     );
 
-    console.log(response.body);
-
     if (response.ok) {
-      console.log("Event succesfully edited");
-      onUpdate();
+      onUpdate(); // Hot reloads the event
       onClose();
       toast({
         title: "Event edited",
@@ -77,7 +70,7 @@ export const editEvent = async (id, event, onClose, toast, onUpdate) => {
       });
     }
   } catch (error) {
-    console.log(`Error: ${error}`);
+    console.error(`Error: ${error}`);
     toast({
       title: "Error",
       description: "Something went wrong editing the event...",

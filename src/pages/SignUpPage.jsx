@@ -25,7 +25,6 @@ export const SignUpPage = () => {
 
     if (success) {
       navigate("/"); // Redirect to home
-      console.log("succes");
       toast({
         title: "Account created.",
         description: "We've created your account for you.",

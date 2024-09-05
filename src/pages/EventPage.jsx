@@ -9,7 +9,6 @@ import { deleteEvent } from "../utils/requestHandlers";
 
 export const loader = async ({ params }) => {
   try {
-    console.log("Fetching event with ID:", params.id); // Log ID
     const event = await fetch(
       `https://event-api-prisma.onrender.com/events/${params.id}`
     );
@@ -18,15 +17,13 @@ export const loader = async ({ params }) => {
     );
     const users = await fetch("https://event-api-prisma.onrender.com/users");
 
-    console.log("API response:", { event, categories, users }); // Log API response
-
     return {
       event: await event.json(),
       categories: await categories.json(),
       users: await users.json(),
     };
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 

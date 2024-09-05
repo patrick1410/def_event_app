@@ -21,7 +21,7 @@ export const loader = async () => {
       categories: await categories.json(),
     };
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 

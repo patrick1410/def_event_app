@@ -85,15 +85,6 @@ export const EditEvent = ({ data, onUpdate }) => {
           <ModalCloseButton />
           <ModalBody>
             <FormControl className="form">
-              {/* <FormLabel className="label" htmlFor="created-by">
-                Created By:
-              </FormLabel>
-              <Input
-                type="text"
-                id="created-by"
-                placeholder="Enter your name..."
-                {...register("createdBy", { required: true })}
-              /> */}
               <FormLabel className="label" htmlFor="title">
                 Event:
               </FormLabel>

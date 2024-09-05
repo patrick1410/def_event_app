@@ -31,7 +31,6 @@ export const LoginPage = () => {
 
     if (success) {
       navigate("/"); // Redirect to home
-      console.log("succes");
       toast({
         title: "Logged in!",
         description:
