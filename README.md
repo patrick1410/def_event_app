@@ -14,7 +14,7 @@ npm run dev
 The app allows users to login and create an account. Registered users can create, view, update, and delete events, they can also search for events by title or description and sort them by category.
 Guests can view events, search by title or description, and sort events by category, but they cannot create, update, or delete events.
 
-## Login
+### Login
 
 If you are interested in playing around with the app you can login with:
 
