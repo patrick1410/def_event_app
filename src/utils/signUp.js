@@ -16,8 +16,6 @@ export const signUp = async (username, password, name, image) => {
     console.error(`Signup failed: ${errorText}`);
     return false;
   } else {
-    const data = await response.json();
-    console.log(data);
     return true;
   }
 };
