@@ -6,7 +6,7 @@ import { EditEvent } from "../components/UI/EditEvent";
 import { Box, Stack } from "@chakra-ui/react";
 import { DeleteEvent } from "../components/UI/DeleteEvent";
 import { deleteEvent } from "../utils/requestHandlers";
-import { LoadingComponent } from "../components/UI/loadingComponent";
+import { LoadingComponent } from "../components/UI/LoadingComponent";
 
 export const loader = async ({ params }) => {
   try {

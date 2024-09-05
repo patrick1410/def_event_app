@@ -9,7 +9,7 @@ import { SelectSort } from "../components/UI/SelectSort";
 import { EventsList } from "../components/EventsList";
 import { Box } from "@chakra-ui/react";
 
-import { LoadingComponent } from "../components/UI/loadingComponent";
+import { LoadingComponent } from "../components/UI/LoadingComponent";
 
 export const loader = async () => {
   try {
