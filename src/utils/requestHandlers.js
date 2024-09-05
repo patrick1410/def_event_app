@@ -29,7 +29,7 @@ export const deleteEvent = async (id) => {
 };
 
 // editEvent functie
-export const editEvent = async (id, event, onClose, toast) => {
+export const editEvent = async (id, event, onClose, toast, onUpdate) => {
   try {
     console.log("Editing event with ID:", id);
     const token = getJWT();
@@ -59,6 +59,7 @@ export const editEvent = async (id, event, onClose, toast) => {
 
     if (response.ok) {
       console.log("Event succesfully edited");
+      onUpdate();
       onClose();
       toast({
         title: "Event edited",

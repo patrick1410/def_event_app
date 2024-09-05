@@ -24,7 +24,7 @@ import { getJWT } from "../../utils/getJWT";
 import { editEvent } from "../../utils/requestHandlers";
 import { useForm } from "react-hook-form";
 
-export const EditEvent = ({ data }) => {
+export const EditEvent = ({ data, onUpdate }) => {
   // const { users } = data;
 
   // const userMap = createUserMap(users);
@@ -185,7 +185,9 @@ export const EditEvent = ({ data }) => {
             <Button
               variant="ghost"
               onClick={() =>
-                handleSubmit((event) => editEvent(id, event, onClose, toast))()
+                handleSubmit((event) =>
+                  editEvent(id, event, onClose, toast, onUpdate)
+                )()
               }
             >
               Save

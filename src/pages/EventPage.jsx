@@ -31,24 +31,52 @@ export const loader = async ({ params }) => {
 };
 
 export const EventPage = () => {
-  const [data, setData] = useState(useLoaderData());
-  // const data = useLoaderData();
-  console.dir(data);
+  // const [data, setData] = useState(useLoaderData());
+  // // const data = useLoaderData();
+  // console.dir(data);
 
+  // const id = data.event.id;
+  // console.log(id);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       setData(data);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
+
+  const initialData = useLoaderData(); // Haal initiële data op
+  const [data, setData] = useState(initialData);
+  const [shouldFetchData, setShouldFetchData] = useState(false);
   const id = data.event.id;
-  console.log(id);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setData(data);
+        const response = await fetch(
+          `https://event-api-prisma.onrender.com/events/${data.event.id}`
+        );
+        const result = await response.json();
+        setData((prevData) => ({ ...prevData, event: result }));
       } catch (error) {
-        console.error(error);
+        console.error("Error fetching event data:", error);
       }
     };
 
-    fetchData();
-  }, []);
+    if (shouldFetchData) {
+      fetchData();
+      setShouldFetchData(false); // Reset de flag na ophalen van data
+    }
+  }, [shouldFetchData, id]); // Voeg afhankelijkheden toe
+
+  const handleEventUpdate = () => {
+    setShouldFetchData(true); // Zet de flag om gegevens opnieuw op te halen
+  };
 
   return (
     <Box>
@@ -61,7 +89,7 @@ export const EventPage = () => {
         spacing={10}
       >
         <DeleteEvent clickFn={deleteEvent} id={id} />
-        <EditEvent data={data} />
+        <EditEvent data={data} onUpdate={handleEventUpdate} />
       </Stack>
     </Box>
   );
