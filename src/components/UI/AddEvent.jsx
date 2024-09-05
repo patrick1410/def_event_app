@@ -21,13 +21,20 @@ import {
 } from "@chakra-ui/react";
 
 import { getJWT } from "../../utils/getJWT";
+import { getUserIdFromToken } from "../../utils/getUserIdFromToken";
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 export const AddEvent = ({ setNewEventAdded }) => {
+  const userId = getUserIdFromToken();
+
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      createdBy: userId,
+    },
+  });
   const [events, setEvents] = useState([]);
 
   const jwt = getJWT();
@@ -98,7 +105,7 @@ export const AddEvent = ({ setNewEventAdded }) => {
           <ModalCloseButton />
           <ModalBody>
             <FormControl className="form">
-              <FormLabel className="label" htmlFor="created-by">
+              {/* <FormLabel className="label" htmlFor="created-by">
                 Created By:
               </FormLabel>
               <Input
@@ -106,7 +113,7 @@ export const AddEvent = ({ setNewEventAdded }) => {
                 id="created-by"
                 placeholder="Enter your name..."
                 {...register("createdBy", { required: true })}
-              />
+              /> */}
               <FormLabel className="label" htmlFor="title">
                 Event:
               </FormLabel>
