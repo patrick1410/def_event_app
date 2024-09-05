@@ -9,8 +9,8 @@ import { SelectSort } from "../components/UI/SelectSort";
 import { EventsList } from "../components/EventsList";
 import { Box } from "@chakra-ui/react";
 
-import { LoadingComponent } from "../components/UI/LoadingComponent";
-import { ErrorComponent } from "../components/UI/ErrorComponent";
+import { LoadingComponent } from "../components/UI/loadingComponent";
+import { ErrorComponent } from "../components/UI/errorComponent";
 
 export const loader = async () => {
   try {
