@@ -53,7 +53,7 @@ export const EditEvent = ({ data, onUpdate }) => {
 
   const noPermission = () => {
     toast({
-      title: "Access denied",
+      title: "Access denied!",
       description: "You must be logged in to perform this action.",
       status: "warning",
       duration: 5000,

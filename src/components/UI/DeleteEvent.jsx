@@ -3,11 +3,11 @@ import { getJWT } from "../../utils/getJWT";
 
 export const DeleteEvent = ({ clickFn, id }) => {
   const toast = useToast();
-  const jwt = getJWT;
+  const jwt = getJWT();
 
   const noPermission = () => {
     toast({
-      title: "Access denied",
+      title: "Access denied!",
       description: "You must be logged in to perform this action.",
       status: "warning",
       duration: 5000,
@@ -24,7 +24,7 @@ export const DeleteEvent = ({ clickFn, id }) => {
       transition="300ms ease-in"
       display="flex"
       justifyContent="center"
-      onClick={jwt ? () => clickFn(id) : noPermission}
+      onClick={jwt ? () => clickFn(id, toast) : noPermission}
     >
       Delete
     </Button>

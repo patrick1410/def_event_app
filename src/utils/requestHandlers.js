@@ -2,7 +2,7 @@ import { convertToLocal } from "./manipulators";
 import { getJWT } from "./getJWT";
 
 // deleteEvent functie
-export const deleteEvent = async (id) => {
+export const deleteEvent = async (id, toast) => {
   try {
     if (confirm("Are you sure you want to delete the event?")) {
       console.log("Deleting event with ID:", id);
@@ -21,6 +21,13 @@ export const deleteEvent = async (id) => {
       if (response.ok) {
         console.log("Event successfully deleted");
         window.history.back();
+        toast({
+          title: "Event deleted",
+          description: "The event has been successfully deleted.",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+        });
       }
     }
   } catch (error) {
