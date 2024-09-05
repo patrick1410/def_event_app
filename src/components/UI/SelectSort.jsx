@@ -10,6 +10,7 @@ export const SelectSort = ({ sortBy, changeFn, data }) => {
   return (
     <Center>
       <Select
+        id="sort"
         w={{ base: "90%", sm: "60%", md: "50%", lg: "40%", xl: "30%" }}
         icon={<ChevronDownIcon />}
         iconColor="#F5F5F5"

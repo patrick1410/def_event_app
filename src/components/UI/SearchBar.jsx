@@ -14,6 +14,7 @@ export const SearchBar = ({ placeholder, changeFn, value }) => {
           children={<SearchIcon color="#F5F5F5" />}
         />
         <Input
+          id="search"
           type="text"
           placeholder={placeholder}
           _placeholder={{ color: "#F5F5F5" }}
@@ -21,6 +22,7 @@ export const SearchBar = ({ placeholder, changeFn, value }) => {
           onChange={changeFn}
           value={value}
           color="#F5F5F5"
+          autoComplete="off"
         ></Input>
       </InputGroup>
     </Center>
