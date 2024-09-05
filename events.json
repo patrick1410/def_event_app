@@ -18,9 +18,7 @@
       "title": "Trampoline party",
       "description": "Bounce around with your friends",
       "image": "https://i.pinimg.com/736x/3d/2f/af/3d2faf4e3188d34a9fcdc00df59e77b0.jpg",
-      "categoryIds": [
-        2
-      ],
+      "categoryIds": [2],
       "location": "My back yard",
       "startTime": "2023-03-10T18:00",
       "endTime": "2023-03-10T17:00:00.000Z"
@@ -31,9 +29,7 @@
       "title": "Laser Tag mania",
       "description": "Let's play laser tag!",
       "image": "https://www.ctvnews.ca/polopoly_fs/1.5118552.1600965663!/httpImage/image.jpg_gen/derivatives/landscape_1020/image.jpg",
-      "categoryIds": [
-        2
-      ],
+      "categoryIds": [2],
       "location": "Blinded by the Lights Laser Tag, 15 Main St.",
       "startTime": "2023-04-06T18:46",
       "endTime": "2023-04-06T17:46"
@@ -44,10 +40,7 @@
       "title": "Badminton game",
       "description": "Hit that shuttle!",
       "image": "https://wincacademy.github.io/webpages/media/pexels-vladvictoria-2202685.jpg",
-      "categoryIds": [
-        1,
-        2
-      ],
+      "categoryIds": [1, 2],
       "location": "The Park",
       "startTime": "2023-03-15T12:00:00.000Z",
       "endTime": "2023-03-15T13:30:00.000Z"
@@ -57,40 +50,11 @@
       "createdBy": 2,
       "title": "Yoga",
       "description": "It's a bit of a stretch.",
-      "image": "https://wincacademy.github.io/webpages/media/pexels-gabby-k-5384538.jpg",
-      "categoryIds": [
-        3
-      ],
+      "image": "https://images.pexels.com/photos/317155/pexels-photo-317155.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "categoryIds": [3],
       "location": "Shavasana Yoga School",
       "startTime": "2023-03-09T06:00:00.000Z",
       "endTime": "2023-03-09T07:00:00.000Z"
-    },
-    {
-      "id": "5cf0",
-      "createdBy": "PS5'r",
-      "title": "PS5",
-      "description": "PS5",
-      "image": "https://cdn.mos.cms.futurecdn.net/HkdMToxijoHfz4JwUgfh3G-1200-80.jpg",
-      "categoryIds": [
-        2,
-        3
-      ],
-      "location": "Home",
-      "startTime": "2024-05-18T15:14",
-      "endTime": "2024-05-19T15:14"
-    },
-    {
-      "id": "52e0",
-      "createdBy": "TEST1",
-      "title": "TEST1",
-      "description": "TEST1",
-      "image": "https://images.sftcdn.net/images/t_app-cover-l,f_auto/p/ce2ece60-9b32-11e6-95ab-00163ed833e7/260663710/the-test-fun-for-friends-screenshot.jpg",
-      "categoryIds": [
-        3
-      ],
-      "location": "TEST1",
-      "startTime": "2024-05-18T19:25",
-      "endTime": "2024-05-19T19:25"
     }
   ],
   "categories": [
