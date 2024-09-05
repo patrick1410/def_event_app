@@ -5,8 +5,6 @@ import { getJWT } from "./getJWT";
 export const deleteEvent = async (id, toast) => {
   try {
     if (confirm("Are you sure you want to delete the event?")) {
-      console.log("Deleting event with ID:", id);
-
       const token = getJWT();
       const response = await fetch(
         `https://event-api-prisma.onrender.com/events/${id}`,
