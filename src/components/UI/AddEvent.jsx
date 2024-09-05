@@ -77,6 +77,13 @@ export const AddEvent = ({ setNewEventAdded }) => {
       setEvents([createdEvent, ...events]); // Add created event to events state
       setNewEventAdded(true); // Call setNewEventAdded to re-render
       onClose(); // Close modal
+      toast({
+        title: "Event Created",
+        description: "Your event has been successfully created!",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+      });
     } catch (error) {
       console.log(error);
     }
