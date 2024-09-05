@@ -69,7 +69,7 @@ export const EventsPage = () => {
   const handleFilter = (e) => {
     const value = e.target.value.toLowerCase();
     const filtered = matchSorter(data.events, value, {
-      keys: ["title", "description"],
+      keys: ["title"],
     });
     setFilteredEvents(filtered);
     setSearchField(e.target.value);

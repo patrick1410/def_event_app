@@ -11,8 +11,10 @@ npm run dev
 
 ## Description
 
-The app allows users to login and create an account. Registered users can create, view, update, and delete events, they can also search for events by title or description and sort them by category.
-Guests can view events, search by title or description, and sort events by category, but they cannot create, update, or delete events.
+The app allows users to login and create an account. Registered users can create, view, update, and delete events, they can also search for events by title and sort them by category.
+Guests can view events, search by title and sort events by category, but they cannot create, update, or delete events.
+
+[Click here to have a look at the app](https://event-app-v1.netlify.app/)
 
 ### Login
 
