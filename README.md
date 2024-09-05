@@ -18,7 +18,7 @@ Guests can view events, search by title or description, and sort events by categ
 
 If you are interested in playing around with the app you can login with:
 
-username: ignacio_doe
+username: ignacio_doe <br/>
 password: p@ssw0rd1
 
 Once logged in, you have the option to create your own account. This approach helps to prevent spam registrations.
