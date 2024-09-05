@@ -1,8 +1,9 @@
 import { Button, useToast } from "@chakra-ui/react";
+import { getJWT } from "../../utils/getJWT";
 
 export const DeleteEvent = ({ clickFn, id }) => {
   const toast = useToast();
-  const jwt = localStorage.getItem("jwt");
+  const jwt = getJWT;
 
   const noPermission = () => {
     toast({

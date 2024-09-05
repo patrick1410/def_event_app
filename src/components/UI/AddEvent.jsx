@@ -20,6 +20,8 @@ import {
   useToast,
 } from "@chakra-ui/react";
 
+import { getJWT } from "../../utils/getJWT";
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -28,7 +30,7 @@ export const AddEvent = ({ setNewEventAdded }) => {
   const { register, handleSubmit } = useForm();
   const [events, setEvents] = useState([]);
 
-  const jwt = localStorage.getItem("jwt");
+  const jwt = getJWT();
   const toast = useToast();
 
   const noPermission = () => {

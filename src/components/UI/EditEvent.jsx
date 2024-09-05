@@ -17,6 +17,8 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 
+import { getJWT } from "../../utils/getJWT";
+
 // import { createUserMap } from "../../utils/mapCreators";
 
 import { editEvent } from "../../utils/requestHandlers";
@@ -46,7 +48,7 @@ export const EditEvent = ({ data }) => {
 
   const { id } = data.event;
 
-  const jwt = localStorage.getItem("jwt");
+  const jwt = getJWT();
   const toast = useToast();
 
   const noPermission = () => {

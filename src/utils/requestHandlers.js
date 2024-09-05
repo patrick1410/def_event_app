@@ -1,4 +1,5 @@
 import { convertToLocal } from "./manipulators";
+import { getJWT } from "./getJWT";
 
 // deleteEvent functie
 export const deleteEvent = async (id) => {
@@ -6,7 +7,7 @@ export const deleteEvent = async (id) => {
     if (confirm("Are you sure you want to delete the event?")) {
       console.log("Deleting event with ID:", id);
 
-      const token = localStorage.getItem("jwt");
+      const token = getJWT();
       const response = await fetch(
         `https://event-api-prisma.onrender.com/events/${id}`,
         {
@@ -31,7 +32,7 @@ export const deleteEvent = async (id) => {
 export const editEvent = async (id, event, onClose, toast) => {
   try {
     console.log("Editing event with ID:", id);
-    const token = localStorage.getItem("jwt");
+    const token = getJWT();
     const response = await fetch(
       `https://event-api-prisma.onrender.com/events/${id}`,
       {

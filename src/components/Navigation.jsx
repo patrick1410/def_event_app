@@ -9,6 +9,8 @@ import {
   useToast,
 } from "@chakra-ui/react";
 
+import { getJWT } from "../utils/getJWT";
+
 export const Navigation = () => {
   const toast = useToast();
   const navigate = useNavigate();
@@ -26,7 +28,7 @@ export const Navigation = () => {
     });
   };
 
-  const jwt = localStorage.getItem("jwt");
+  const jwt = getJWT();
 
   return (
     <Box as="nav">
