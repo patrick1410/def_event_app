@@ -13,7 +13,7 @@ export const login = async (username, password) => {
     return false;
   } else {
     const data = await response.json();
-    localStorage.setItem("jwt", data.token); // Sla het JWT op in localStorage
+    localStorage.setItem("jwt", data.token); // Save JWT in localStorage
     return true;
   }
 };

@@ -6,7 +6,9 @@ import { EditEvent } from "../components/UI/EditEvent";
 import { Box, Stack } from "@chakra-ui/react";
 import { DeleteEvent } from "../components/UI/DeleteEvent";
 import { deleteEvent } from "../utils/requestHandlers";
+
 import { LoadingComponent } from "../components/UI/LoadingComponent";
+import { ErrorComponent } from "../components/UI/ErrorComponent";
 
 export const loader = async ({ params }) => {
   try {
@@ -49,7 +51,7 @@ export const EventPage = () => {
         const result = await response.json();
         setData((prevData) => ({ ...prevData, event: result }));
       } catch (error) {
-        console.error("Error fetching event data:", error);
+        console.error(error);
         setError(error);
       } finally {
         setIsLoading(false);
@@ -58,15 +60,18 @@ export const EventPage = () => {
 
     if (shouldFetchData) {
       fetchData();
-      setShouldFetchData(false); // Reset de flag na ophalen van data
+      setShouldFetchData(false); // Reset flag after fetchData()
     }
-  }, [shouldFetchData, id]); // Voeg afhankelijkheden toe
+  }, [shouldFetchData, id]);
 
+  // Function for EditEvent component to set flag to true again after updating
   const handleEventUpdate = () => {
-    setShouldFetchData(true); // Zet de flag om gegevens opnieuw op te halen
+    setShouldFetchData(true);
   };
 
-  return isLoading ? (
+  return error ? (
+    <ErrorComponent error={error} color="#B22222" />
+  ) : isLoading ? (
     <LoadingComponent />
   ) : (
     <Box>

@@ -10,6 +10,7 @@ import { EventsList } from "../components/EventsList";
 import { Box } from "@chakra-ui/react";
 
 import { LoadingComponent } from "../components/UI/LoadingComponent";
+import { ErrorComponent } from "../components/UI/ErrorComponent";
 
 export const loader = async () => {
   try {
@@ -79,7 +80,9 @@ export const EventsPage = () => {
     setSortBy(value);
   }; // Sorteer functie voor SelectSort component
 
-  return isLoading ? (
+  return error ? (
+    <ErrorComponent error={error} color="#B22222" />
+  ) : isLoading ? (
     <LoadingComponent />
   ) : (
     <Box>

@@ -1,6 +1,6 @@
 import { jwtDecode } from "jwt-decode";
 
-// Functie om gebruikers-ID uit de token te halen
+// Function to extract userId from token
 export const getUserIdFromToken = () => {
   const token = localStorage.getItem("jwt");
   if (token) {

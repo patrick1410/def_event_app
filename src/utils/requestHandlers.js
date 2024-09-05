@@ -59,7 +59,7 @@ export const editEvent = async (id, event, onClose, toast, onUpdate) => {
     );
 
     if (response.ok) {
-      onUpdate(); // Hot reloads the event
+      onUpdate(); // Hot reloads the event (triggers fetchData())
       onClose();
       toast({
         title: "Event edited",

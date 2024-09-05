@@ -19,19 +19,10 @@ import {
 
 import { getJWT } from "../../utils/getJWT";
 
-// import { createUserMap } from "../../utils/mapCreators";
-
 import { editEvent } from "../../utils/requestHandlers";
 import { useForm } from "react-hook-form";
 
 export const EditEvent = ({ data, onUpdate }) => {
-  // const { users } = data;
-
-  // const userMap = createUserMap(users);
-
-  // Haal de gebruikersnaam op basis van userId
-  // const userName = userMap[data.event.userId] || "Unknown User";
-
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { register, handleSubmit } = useForm({
     defaultValues: {
