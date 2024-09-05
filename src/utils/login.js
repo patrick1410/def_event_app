@@ -10,6 +10,7 @@ export const login = async (username, password) => {
   if (!response.ok) {
     const errorText = await response.text();
     console.error(`Login failed: ${errorText}`);
+    return false;
   } else {
     const data = await response.json();
     localStorage.setItem("jwt", data.token); // Sla het JWT op in localStorage

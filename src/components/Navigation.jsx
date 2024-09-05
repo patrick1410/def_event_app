@@ -70,6 +70,24 @@ export const Navigation = () => {
               </Link>
             )}
           </ListItem>
+          <ListItem
+            color="#F5F5F5"
+            _hover={{ color: "#bb86fc" }}
+            mb={5}
+            transition="300ms ease-in"
+          >
+            {jwt && (
+              <Link
+                style={{
+                  textTransform: "uppercase",
+                  fontWeight: "bold",
+                }}
+                to={"/signup"}
+              >
+                Create account
+              </Link>
+            )}
+          </ListItem>
         </HStack>
       </UnorderedList>
     </Box>

@@ -2,48 +2,41 @@ import {
   FormControl,
   FormLabel,
   Input,
-  InputGroup,
-  InputRightElement,
   Button,
   Flex,
   useToast,
 } from "@chakra-ui/react";
 
-import { login } from "../utils/login";
+import { signUp } from "../utils/signUp";
 
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
-export const LoginPage = () => {
+export const SignUpPage = () => {
   const toast = useToast();
   const navigate = useNavigate();
 
   const { register, handleSubmit } = useForm();
-  const [show, setShow] = useState(false);
-
-  const toggleShow = () => setShow(!show);
 
   const onSubmit = async (data) => {
-    const { username, password } = data;
+    const { username, password, name, image } = data;
 
-    const success = await login(username, password);
+    const success = await signUp(username, password, name, image);
 
     if (success) {
       navigate("/"); // Redirect to home
       console.log("succes");
       toast({
-        title: "Logged in!",
-        description:
-          "You've successfully logged in! You can now access and perform authorized operations.",
+        title: "Account created.",
+        description: "We've created your account for you.",
         status: "success",
         duration: 5000,
         isClosable: true,
       });
     } else {
       toast({
-        title: "Login failed",
-        description: "Invalid username or password!",
+        title: "Failed to create an account.",
+        description: "something went wrong.",
         status: "error",
         duration: 5000,
         isClosable: true,
@@ -74,31 +67,42 @@ export const LoginPage = () => {
         <FormLabel mt={2} mb={2} htmlFor="password" color="#F5F5F5">
           Password
         </FormLabel>
-        <InputGroup>
-          <Input
-            id="password"
-            type={show ? "text" : "password"}
-            _placeholder={{ color: "#F5F5F5" }}
-            placeholder="Enter password"
-            border="1px solid #F5F5F5"
-            color="#F5F5F5"
-            autoComplete="off"
-            {...register("password", { required: true })}
-          />
-          <InputRightElement width="4.5rem">
-            <Button
-              backgroundColor="#bb86fc"
-              color="#fff"
-              _hover={{ backgroundColor: "#fff", color: "#bb86fc" }}
-              transition="300ms ease-in"
-              h="1.75rem"
-              size="sm"
-              onClick={toggleShow}
-            >
-              {show ? "Hide" : "Show"}
-            </Button>
-          </InputRightElement>
-        </InputGroup>
+        <Input
+          id="password"
+          type="text"
+          _placeholder={{ color: "#F5F5F5" }}
+          placeholder="Enter password"
+          border="1px solid #F5F5F5"
+          color="#F5F5F5"
+          autoComplete="off"
+          {...register("password", { required: true })}
+        />
+        <FormLabel mt={2} mb={2} htmlFor="name" color="#F5F5F5">
+          Name
+        </FormLabel>
+        <Input
+          id="name"
+          type="text"
+          _placeholder={{ color: "#F5F5F5" }}
+          placeholder="Enter name"
+          border="1px solid #F5F5F5"
+          color="#F5F5F5"
+          autoComplete="off"
+          {...register("name", { required: true })}
+        />
+        <FormLabel mt={2} mb={2} htmlFor="image" color="#F5F5F5">
+          Image
+        </FormLabel>
+        <Input
+          id="image"
+          type="text"
+          _placeholder={{ color: "#F5F5F5" }}
+          placeholder="Enter image URL"
+          border="1px solid #F5F5F5"
+          color="#F5F5F5"
+          autoComplete="off"
+          {...register("image", { required: true })}
+        />
         <Flex justifyContent="center">
           <Button
             type="submit"
@@ -109,7 +113,7 @@ export const LoginPage = () => {
             transition="300ms ease-in"
             onClick={handleSubmit(onSubmit)}
           >
-            Login
+            Sign up
           </Button>
         </Flex>
       </FormControl>
